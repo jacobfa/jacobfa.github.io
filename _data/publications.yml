@@ -19,5 +19,5 @@ main:
     # code: https://github.com/yaoyao-liu/class-incremental-learning/tree/main/mnemonics-training
     # page: https://class-il.mpi-inf.mpg.de/mnemonics/
     bibtex: https://jacobfa.github.io/assets/files/benchmarkingsar.txt
-    # notes: Oral Presentation
+    notes: Oral Presentation
     image: ./assets/img/gnn.png
