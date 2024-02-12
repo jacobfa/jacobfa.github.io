@@ -8,7 +8,7 @@ main:
     pdf: https://arxiv.org/pdf/2402.00564.pdf
     code: https://github.com/GECCOProject/GECCO
     bibtex: https://jacobfa.github.io/assets/files/singlegraphconv.txt
-    image: ./assets/img/gecco.png
+    image: ./assets/img/grayscale.png
     # notes: Early Accept
 
   - title: "Benchmarking Deep Learning Classifiers for SAR Automatic Target Recognition"
