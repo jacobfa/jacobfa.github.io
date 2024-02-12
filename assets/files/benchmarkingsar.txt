@@ -1,0 +1,10 @@
+@INPROCEEDINGS{10363455,
+  author={Fein-Ashley, Jacob and Ye, Tian and Kannan, Rajgopal and Prasanna, Viktor and Busart, Carl},
+  booktitle={2023 IEEE High Performance Extreme Computing Conference (HPEC)}, 
+  title={Benchmarking Deep Learning Classifiers for SAR Automatic Target Recognition}, 
+  year={2023},
+  volume={},
+  number={},
+  pages={1-6},
+  keywords={Deep learning;Target recognition;Computational modeling;Perturbation methods;Benchmark testing;Throughput;Radar polarimetry;Graph Neural Network;Synthetic Aperture Radar;Automatic Target Recognition;Benchmarking},
+  doi={10.1109/HPEC58863.2023.10363455}}

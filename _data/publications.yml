@@ -2,12 +2,12 @@ main:
 
   - title: "A Single Graph Convolution Is All You Need: Efficient Grayscale Image Classification"
     authors:  <strong>Jacob Fein-Ashley</strong>, Tian Ye, Sachini Wickramasinghe, Bingyi Zhang, Rajgopal Kannan, Viktor Prasanna
-    conference_short: N/A
+    conference_short: Preprint
     # conference: International Conference on Medical Image Computing and Computer-Assisted Intervention <strong>(MICCAI)</strong>, 2023.
-    conference: N/A
+    conference: Preprint
     pdf: https://arxiv.org/pdf/2402.00564.pdf
     code: https://github.com/GECCOProject/GECCO
-    bibtex: https://bib.yliu.me/MICCAI23.txt
+    bibtex: https://jacobfa.github.io/assets/files/singlegraphconv.txt
     image: ./assets/img/gecco.png
     # notes: Early Accept
 
@@ -18,6 +18,6 @@ main:
     pdf: https://arxiv.org/pdf/2312.06940.pdf
     # code: https://github.com/yaoyao-liu/class-incremental-learning/tree/main/mnemonics-training
     # page: https://class-il.mpi-inf.mpg.de/mnemonics/
-    bibtex: https://class-il.mpi-inf.mpg.de/mnemonics/
+    bibtex: https://jacobfa.github.io/assets/files/benchmarkingsar.txt
     # notes: Oral Presentation
     image: ./assets/img/gnn.png
