@@ -14,10 +14,10 @@ main:
   - title: "Benchmarking Deep Learning Classifiers for SAR Automatic Target Recognition"
     authors: <strong>Jacob Fein-Ashley</strong>, Tian Ye, Rajgopal Kannan, Viktor Prasanna, Carl Busart
     conference_short: IEEE HPEC
-    conference: IEEE/CVF Conference on Computer Vision and Pattern Recognition <strong>(CVPR)</strong>, 2020.
-    pdf: https://arxiv.org/pdf/2002.10211.pdf
-    code: https://github.com/yaoyao-liu/class-incremental-learning/tree/main/mnemonics-training
-    page: https://class-il.mpi-inf.mpg.de/mnemonics/
+    conference: IEEE High Performance Extreme Computing Conference <strong>(HPEC)</strong>, 2023.
+    pdf: https://arxiv.org/pdf/2312.06940.pdf
+    # code: https://github.com/yaoyao-liu/class-incremental-learning/tree/main/mnemonics-training
+    # page: https://class-il.mpi-inf.mpg.de/mnemonics/
     bibtex: https://class-il.mpi-inf.mpg.de/mnemonics/
     # notes: Oral Presentation
     image: ./assets/img/gnn.png
