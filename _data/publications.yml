@@ -1,22 +1,23 @@
 main:
 
-  - title: Continual Learning for Abdominal Multi-Organ and Tumor Segmentation
-    authors: Yixiao Zhang, Xinyi Li, Huimiao Chen, Alan Yuille, <strong>Yaoyao Liu*</strong>, Zongwei Zhou* (*Corresponding authors)
-    conference_short: MICCAI
-    conference: International Conference on Medical Image Computing and Computer-Assisted Intervention <strong>(MICCAI)</strong>, 2023.
-    pdf: https://arxiv.org/pdf/2306.00988.pdf
-    code: https://github.com/MrGiovanni/ContinualLearning
+  - title: "A Single Graph Convolution Is All You Need: Efficient Grayscale Image Classification"
+    authors:  <strong>Jacob Fein-Ashley</strong>, Tian Ye, Sachini Wickramasinghe, Bingyi Zhang, Rajgopal Kannan, Viktor Prasanna
+    conference_short: N/A
+    # conference: International Conference on Medical Image Computing and Computer-Assisted Intervention <strong>(MICCAI)</strong>, 2023.
+    conference: N/A
+    pdf: https://arxiv.org/pdf/2402.00564.pdf
+    code: https://github.com/GECCOProject/GECCO
     bibtex: https://bib.yliu.me/MICCAI23.txt
-    image: ./assets/img/teaser_example_2.png
-    notes: Early Accept
+    image: ./assets/img/gecco.png
+    # notes: Early Accept
 
-  - title: "Mnemonics Training: Multi-Class Incremental Learning without Forgetting"
-    authors: <strong>Yaoyao Liu</strong>, Yuting Su, An-An Liu, Bernt Schiele, Qianru Sun
-    conference_short: CVPR
+  - title: "Benchmarking Deep Learning Classifiers for SAR Automatic Target Recognition"
+    authors: <strong>Jacob Fein-Ashley</strong>, Tian Ye, Rajgopal Kannan, Viktor Prasanna, Carl Busart
+    conference_short: IEEE HPEC
     conference: IEEE/CVF Conference on Computer Vision and Pattern Recognition <strong>(CVPR)</strong>, 2020.
     pdf: https://arxiv.org/pdf/2002.10211.pdf
     code: https://github.com/yaoyao-liu/class-incremental-learning/tree/main/mnemonics-training
     page: https://class-il.mpi-inf.mpg.de/mnemonics/
     bibtex: https://class-il.mpi-inf.mpg.de/mnemonics/
-    notes: Oral Presentation
-    image: ./assets/img/teaser_example.png
+    # notes: Oral Presentation
+    image: ./assets/img/gnn.png

@@ -4,19 +4,17 @@ layout: homepage
 
 ## About Me
 
-I am a Ph.D. student at ...
+I am a Master's student in Electrical Engineering at the University of Southern California.
 
 ## Research Interests
 
-- **Computer Vision:** image recognition, image generation, video captioning
-- **Machine Learning:** meta-learning, incremental learning, transfer learning
+- **Machine Learning:** Broadly, I am interested in machine learning.
+- **Statistics:** I am interested in the statistical properties of machine learning algorithms.
 
 ## News
 
-- **[Feb. 2020]** Our paper about incremental learning is accepted to CVPR 2020.
-- **[Feb. 2020]** We will host the ACM Multimedia Asia 2020 conference in Singapore!
-- **[Sept. 2019]** Our paper about few-shot learning is accepted to NeurIPS 2019.
-- **[Mar. 2019]** Our paper about few-shot learning is accepted to CVPR 2019.
+- **[February 2024]** Submitted a paper to IEEE ICIP 2024.
+- **[Dec 2023]** I published my first paper to IEEE HPEC 2023.
 
 {% include_relative _includes/publications.md %}
 
