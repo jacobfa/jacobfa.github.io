@@ -8,8 +8,8 @@ I am a Master's student in Electrical Engineering at the University of Southern 
 
 ## Research Interests
 
-- **Machine Learning:** Broadly, I am interested in machine learning.
-- **Statistics:** I am interested in the statistical properties of machine learning algorithms.
+- **Machine Learning:**
+- **Statistics**
 
 <!-- ## News
 
