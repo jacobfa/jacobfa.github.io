@@ -11,10 +11,10 @@ I am a Master's student in Electrical Engineering at the University of Southern 
 - **Machine Learning:** Broadly, I am interested in machine learning.
 - **Statistics:** I am interested in the statistical properties of machine learning algorithms.
 
-## News
+<!-- ## News
 
 - **[February 2024]** Submitted a paper to IEEE ICIP 2024.
-- **[Dec 2023]** I published my first paper to IEEE HPEC 2023.
+- **[Dec 2023]** I published my first paper to IEEE HPEC 2023. -->
 
 {% include_relative _includes/publications.md %}
 
