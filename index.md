@@ -8,7 +8,7 @@ I am a Master's student in Electrical Engineering at the University of Southern 
 
 ## Research Interests
 
-- **Machine Learning:**
+- **Machine Learning**
 - **Statistics**
 
 <!-- ## News
