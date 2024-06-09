@@ -1,1 +1,1 @@
-document.body.classList.toggle("latex-dark");
+document.body.classList.toggle("latex-dark", true);
