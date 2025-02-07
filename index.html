@@ -55,16 +55,16 @@
       font-size: 1.2rem;
       font-weight: normal;
       margin-bottom: 1.5rem;
-      color: #ccc; /* Slightly lighter than body text */
+      color: #ccc;
       font-style: italic;
     }
 
-    /* Profile image: full rectangular, no rounding */
+    /* Profile image */
     .profile-img {
       width: 100%;
-      max-width: 400px; /* Keep it from being too large on big screens */
+      max-width: 400px;
       display: block;
-      margin: 0 auto 1rem auto; /* Center the image and add bottom spacing */
+      margin: 0 auto 1rem auto;
     }
 
     /* Links */
@@ -79,13 +79,39 @@
     }
 
     .links a {
-      color: #4dabf7; /* A blue accent color that stands out on dark */
+      color: #4dabf7;
       text-decoration: none;
       font-weight: 500;
     }
 
     .links a:hover {
       text-decoration: underline;
+    }
+    
+    /* Publications section styling */
+    .publications {
+      margin-top: 2rem;
+      text-align: left;
+    }
+    
+    .publications h3 {
+      margin-bottom: 1rem;
+      font-size: 1.5rem;
+    }
+    
+    .publication-item {
+      margin-bottom: 1rem;
+      border-bottom: 1px solid #333;
+      padding-bottom: 1rem;
+    }
+    
+    .publication-title {
+      font-weight: bold;
+    }
+    
+    .publication-meta {
+      font-size: 0.9rem;
+      color: #aaa;
     }
   </style>
 </head>
@@ -106,6 +132,53 @@
       <li><a href="https://www.linkedin.com/in/jacobfeinashley/" target="_blank">LinkedIn</a></li>
       <li><a href="stuff/Fein-Ashley_Jacob_Resume.pdf" target="_blank">Resume</a></li>
     </ul>
+    
+    <!-- Publications Section -->
+    <div class="publications">
+      <h3>Publications</h3>
+      <div id="pubList">
+        <!-- Publication items will be loaded here -->
+      </div>
+    </div>
   </div>
+  
+  <script>
+    /* 
+      This script fetches publication data from a JSON file.
+      Since Google Scholar does not provide an API, you can update the JSON file manually
+      or build a server-side routine to periodically update it.
+    */
+    fetch('publications.json')
+      .then(response => response.json())
+      .then(data => {
+         const pubListDiv = document.getElementById('pubList');
+         data.publications.forEach(pub => {
+             const pubDiv = document.createElement('div');
+             pubDiv.classList.add('publication-item');
+             
+             // Title with an optional link
+             const titleEl = document.createElement('div');
+             titleEl.classList.add('publication-title');
+             if (pub.link) {
+               titleEl.innerHTML = `<a href="${pub.link}" target="_blank">${pub.title}</a>`;
+             } else {
+               titleEl.textContent = pub.title;
+             }
+             
+             // Additional metadata (authors, journal, year, etc.)
+             const metaEl = document.createElement('div');
+             metaEl.classList.add('publication-meta');
+             metaEl.textContent = pub.meta;
+             
+             pubDiv.appendChild(titleEl);
+             pubDiv.appendChild(metaEl);
+             pubListDiv.appendChild(pubDiv);
+         });
+      })
+      .catch(err => {
+         console.error('Error loading publications:', err);
+         document.getElementById('pubList').textContent = 'Unable to load publications.';
+      });
+  </script>
 </body>
 </html>

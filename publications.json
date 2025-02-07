@@ -1,0 +1,20 @@
+{
+    "publications": [
+      {
+        "title": "Iterate to Accelerate: A Unified Framework for Iterative Reasoning and Feedback Convergence",
+        "link": "https://arxiv.org/abs/2502.03787",
+        "meta": "Jacob Fein-Ashley. arXiv:2502.03787 [cs.LG], 2025"
+      },
+      {
+        "title": "Contextual Feedback Loops: Amplifying Deep Reasoning with Iterative Top-Down Feedback",
+        "link": "https://arxiv.org/abs/2412.17737",
+        "meta": "Jacob Fein-Ashley, Rajgopal Kannan, Viktor Prasanna. arXiv:2412.17737 [cs.LG], 2025"
+      },
+      {
+        "title": "ClusterViG: Efficient Globally Aware Vision GNNs via Image Partitioning",
+        "link": "https://arxiv.org/abs/2501.10640",
+        "meta": "Dhruv Parikh, Jacob Fein-Ashley, Tian Ye, Rajgopal Kannan, Viktor Prasanna. arXiv:2501.10640 [cs.CV], 2025"
+      }
+    ]
+  }
+  
