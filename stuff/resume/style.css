@@ -1,0 +1,156 @@
+/* Import Google Font for Roboto */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+/* Basic Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+  font-family: 'Roboto', sans-serif;
+  line-height: 1.6;
+  background-color: #fff;  /* White background */
+  color: #000;             /* Black text */
+  padding: 20px;
+}
+
+/* Container */
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  background: #fff;
+  padding: 30px;
+  border: 1px solid #000;  /* Black border */
+  border-radius: 8px;
+}
+
+/* Header */
+header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  color: #000;
+}
+
+header .contact {
+  font-size: 0.9rem;
+  color: #000;
+}
+
+header .contact a {
+  text-decoration: none;
+  color: #000;
+  margin: 0 5px;
+}
+
+header .contact a:hover {
+  text-decoration: underline;
+}
+
+/* Section Titles */
+section h2 {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+  border-bottom: 2px solid #000;  /* Black underline */
+  padding-bottom: 5px;
+  margin-top: 30px;
+  color: #000;
+}
+
+/* Resume Entry */
+.resume-entry {
+  margin-bottom: 20px;
+}
+
+.resume-entry .heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 5px;
+}
+
+.resume-entry .heading h3 {
+  font-size: 1.2rem;
+  margin: 0;
+  color: #000;
+}
+
+.resume-entry .heading .location {
+  font-size: 0.9rem;
+  color: #000;
+}
+
+.resume-entry .details {
+  margin-left: 10px;
+  position: relative;
+}
+
+.resume-entry .details h4 {
+  font-size: 1rem;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #000;
+}
+
+.resume-entry .details .dates {
+  float: right;
+  font-size: 0.9rem;
+  color: #000;
+}
+
+.resume-entry .details p,
+.resume-entry .details p.small {
+  font-size: 0.9rem;
+  color: #000;
+  margin-top: 5px;
+}
+
+/* List Styling */
+ul {
+  list-style-type: disc;
+  margin-left: 20px;
+  margin-top: 5px;
+}
+
+/* Table Styling */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+table tr td {
+  padding: 5px 0;
+  vertical-align: top;
+}
+
+table .label {
+  width: 150px;
+  font-weight: bold;
+  color: #000;
+}
+
+/* Links */
+a {
+  color: #000;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  margin-top: 30px;
+  color: #000;
+  font-size: 0.8rem;
+}
