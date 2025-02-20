@@ -4,7 +4,152 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Jacob Fein-Ashley | Résumé</title>
-  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Base Styles (Screen & Default Print) */
+    body {
+      font-family: "Times New Roman", serif;
+      margin: 0;
+      padding: 0;
+      background: #fff;
+      color: #000;
+      /* Base font size for screen */
+      font-size: 14px;
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 10px;
+      line-height: 1.3;
+    }
+    header {
+      text-align: center;
+      margin-bottom: 10px;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 32px;
+    }
+    header .contact {
+      font-size: 12px;
+    }
+    header .contact a {
+      color: #000;
+      text-decoration: none;
+      margin: 0 3px;
+    }
+    header .contact a:hover {
+      text-decoration: underline;
+    }
+    section {
+      margin-bottom: 15px;
+    }
+    h2 {
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 3px;
+      margin-bottom: 10px;
+      font-size: 18px;
+    }
+    .resume-entry {
+      display: flex;
+      margin-bottom: 10px;
+    }
+    .resume-entry .side {
+      flex: 0 0 150px;
+      text-align: right;
+      padding-right: 10px;
+      border-right: 1px solid #ccc;
+    }
+    .resume-entry .side h3 {
+      margin: 0;
+      font-size: 16px;
+    }
+    .resume-entry .side p.location {
+      font-style: italic;
+      font-size: 12px;
+      color: #555;
+      margin: 2px 0 0;
+    }
+    .resume-entry .content {
+      flex: 1;
+      padding-left: 10px;
+    }
+    .resume-entry .content h4 {
+      margin: 0;
+      font-size: 14px;
+    }
+    .resume-entry .content p.dates {
+      font-size: 12px;
+      color: #555;
+      margin: 3px 0;
+    }
+    .skills-list, #awards ul {
+      list-style: none;
+      padding: 0;
+      font-size: 12px;
+    }
+    .skills-list li, #awards ul li {
+      margin-bottom: 3px;
+    }
+    ul {
+      list-style-type: disc;
+      padding-left: 15px;
+      font-size: 12px;
+    }
+    
+    /* Print Styles */
+    @media print {
+      body {
+        /* Increase base font size for print */
+        font-size: 16px;
+      }
+      .container {
+        max-width: 100%;
+        padding: 10px;
+      }
+      header h1 {
+        font-size: 36px;
+      }
+      header .contact {
+        font-size: 14px;
+      }
+      h2 {
+        font-size: 20px;
+        margin-bottom: 8px;
+      }
+      .resume-entry {
+        display: block;
+        margin-bottom: 10px;
+      }
+      .resume-entry .side,
+      .resume-entry .content {
+        display: block;
+        text-align: left;
+        padding: 0;
+      }
+      .resume-entry .side {
+        margin-bottom: 5px;
+      }
+      .resume-entry .side h3 {
+        font-size: 18px;
+      }
+      .resume-entry .side p.location {
+        font-size: 14px;
+      }
+      .resume-entry .content h4 {
+        font-size: 16px;
+      }
+      .resume-entry .content p.dates {
+        font-size: 14px;
+      }
+      .skills-list, #awards ul, ul {
+        font-size: 14px;
+      }
+      /* Prevent unwanted page breaks */
+      header, section, h2 {
+        page-break-inside: avoid;
+      }
+    }
+  </style>
 </head>
 <body>
   <div class="container">
@@ -20,83 +165,75 @@
     </header>
 
     <main>
-      <!-- Professional Summary -->
-      <section id="summary">
-        <h2>Professional Summary</h2>
-        <p>
-          Detail-oriented researcher with extensive experience in machine learning, data science, and electrical engineering. Adept at designing innovative solutions and driving research projects to successful completion. Proven expertise in advanced algorithms, data analysis, and collaborative problem-solving.
-        </p>
-      </section>
-
       <!-- Education Section -->
       <section id="education">
         <h2>Education</h2>
         
-        <article class="resume-entry">
-          <header class="entry-header">
+        <div class="resume-entry">
+          <div class="side">
             <h3>University of Southern California</h3>
-            <span class="location">Los Angeles, CA</span>
-          </header>
-          <div class="entry-details">
+            <p class="location">Los Angeles, CA</p>
+          </div>
+          <div class="content">
             <h4>Ph.D. in Electrical Engineering</h4>
-            <span class="dates">Jan 2025 – May 2028</span>
+            <p class="dates">Jan 2025 – May 2028</p>
             <p>
               <strong>Research Focus:</strong> Machine Learning<br>
               <strong>Relevant Coursework:</strong> Probability for Electrical Engineers, Linear Algebra for Electrical Engineers, Topics in Stochastic Processes, Deep Learning, Computational Intelligence and Neural Learning
             </p>
           </div>
-        </article>
-
-        <article class="resume-entry">
-          <header class="entry-header">
+        </div>
+        
+        <div class="resume-entry">
+          <div class="side">
             <h3>University of Southern California</h3>
-            <span class="location">Los Angeles, CA</span>
-          </header>
-          <div class="entry-details">
-            <h4>M.S. in Electrical Engineering</h4>
-            <span class="dates">Aug 2023 – Dec 2024</span>
-            <p>
-              Focused on coursework and projects in machine learning and data science.
-            </p>
+            <p class="location">Los Angeles, CA</p>
           </div>
-        </article>
-
-        <article class="resume-entry">
-          <header class="entry-header">
+          <div class="content">
+            <h4>M.S. in Electrical Engineering</h4>
+            <p class="dates">Aug 2023 – Dec 2024</p>
+            <p>Focused on coursework and projects in machine learning and data science.</p>
+          </div>
+        </div>
+        
+        <div class="resume-entry">
+          <div class="side">
             <h3>Colorado School of Mines</h3>
-            <span class="location">Golden, CO</span>
-          </header>
-          <div class="entry-details">
+            <p class="location">Golden, CO</p>
+          </div>
+          <div class="content">
             <h4>B.S. in Computer Science</h4>
-            <span class="dates">Aug 2020 – Dec 2022</span>
+            <p class="dates">Aug 2020 – Dec 2022</p>
             <p>
               <strong>GPA:</strong> 3.80/4.00<br>
               <strong>Relevant Coursework:</strong> Machine Learning, Data Structures, Algorithms, Linear Algebra, Probability Theory, Mathematical Statistics, Operating Systems, Calculus I–III, Differential Equations, Discrete Mathematics, Software Engineering, Database Management, Multivariate Analysis, Advanced Machine Learning
             </p>
           </div>
-        </article>
+        </div>
       </section>
 
       <!-- Experience Section -->
       <section id="experience">
         <h2>Experience</h2>
-        <article class="resume-entry">
-          <header class="entry-header">
+        <div class="resume-entry">
+          <div class="side">
             <h3>
-              <a href="https://sites.usc.edu/dslab/" target="_blank">Data Science Lab, USC</a>
+              <a href="https://sites.usc.edu/dslab/" target="_blank" style="text-decoration: none; color: inherit;">
+                Data Science Lab, USC
+              </a>
             </h3>
-            <span class="location">Los Angeles, CA</span>
-          </header>
-          <div class="entry-details">
+            <p class="location">Los Angeles, CA</p>
+          </div>
+          <div class="content">
             <h4>Graduate Research Assistant</h4>
-            <span class="dates">May 2023 – Present</span>
+            <p class="dates">May 2023 – Present</p>
             <ul>
               <li>Conduct research in machine learning and data science methodologies.</li>
               <li>Collaborate with Dr. Viktor Prasanna to develop innovative solutions for complex problems.</li>
               <li>Contribute to academic publications and presentations at international conferences.</li>
             </ul>
           </div>
-        </article>
+        </div>
       </section>
 
       <!-- Skills Section -->
@@ -117,11 +254,6 @@
         </ul>
       </section>
     </main>
-
-    <!-- Footer -->
-    <footer>
-      <p>&copy; 2025 Jacob Fein-Ashley</p>
-    </footer>
   </div>
 </body>
 </html>
