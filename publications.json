@@ -1,6 +1,11 @@
 {
     "publications": [
       {
+        "title": "The FFT Strikes Back: An Efficient Alternative to Self-Attention",
+        "link": "https://arxiv.org/abs/2502.18394",
+        "meta": "Jacob Fein-Ashley. arXiv:2502.18394 [cs.LG], 2025"
+      },
+      {
         "title": "Iterate to Accelerate: A Unified Framework for Iterative Reasoning and Feedback Convergence",
         "link": "https://arxiv.org/abs/2502.03787",
         "meta": "Jacob Fein-Ashley. arXiv:2502.03787 [cs.LG], 2025"
