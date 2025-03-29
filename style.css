@@ -1,132 +1,137 @@
-/* Global Reset & Box Sizing */
+/* Global Reset */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  /* Body: Modern dark gradient background with fresh typography */
-  body {
-    font-family: 'Roboto', sans-serif;
-    background: linear-gradient(135deg, #2c3e50, #4ca1af);
-    color: #ecf0f1;
-    margin: 0;
-    padding: 0;
-  }
-  
-  /* Header Styling */
-  header {
-    background: rgba(44, 62, 80, 0.85);
-    padding: 15px 20px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-  }
-  .header-container {
-    max-width: 1000px;
-    margin: auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  /* Profile Section */
-  .profile {
-    display: flex;
-    align-items: center;
-  }
-  .profile-img {
-    width: 100px;
-    height: auto;
-    margin-right: 15px;
-  }
-  .credentials h1 {
-    font-size: 1.8em;
-    margin-bottom: 5px;
-    color: #ecf0f1;
-  }
-  .credentials h2 {
-    font-size: 1.1em;
-    margin-bottom: 2px;
-    font-weight: 400;
-    color: #bdc3c7;
-  }
-  .credentials p {
-    font-size: 0.95em;
-    color: #95a5a6;
-  }
-  
-  /* Header Navigation Links */
-  .header-links a {
-    text-decoration: none;
-    margin-left: 20px;
-    font-weight: 700;
-    color: #e67e22;
-    transition: color 0.3s;
-  }
-  .header-links a:hover {
-    color: #d35400;
-  }
-  
-  /* Main Content */
-  main {
-    max-width: 1000px;
-    margin: 40px auto;
-    padding: 0 20px;
-  }
-  
-    /* Publications Section */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Base Styles */
+body {
+  font-family: 'Montserrat', sans-serif;
+  background-color: #ffffff;
+  color: #333333;
+  line-height: 1.6;
+}
+
+/* Header Styles */
+header {
+  background-color: #ffffff;
+  border-bottom: 1px solid #e0e0e0;
+  padding: 20px 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+.header-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Profile Section */
+.profile {
+  display: flex;
+  align-items: center;
+}
+.profile-img {
+  width: 100px; /* Adjust the width as needed */
+  height: auto;
+  margin-right: 15px;
+}
+.credentials h1 {
+  font-size: 1.8em;
+  margin-bottom: 5px;
+  color: #1a73e8;
+}
+.credentials h2 {
+  font-size: 1.1em;
+  margin-bottom: 5px;
+  font-weight: 400;
+  color: #555555;
+}
+.credentials p {
+  font-size: 0.95em;
+  color: #777777;
+}
+
+/* Navigation Links */
+.header-links a {
+  margin-left: 20px;
+  text-decoration: none;
+  font-weight: 700;
+  color: #1a73e8;
+  transition: color 0.3s;
+}
+.header-links a:hover {
+  color: #1558b0;
+}
+
+/* Main Content */
+main {
+  max-width: 1100px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+/* Publications Section */
+.publications {
+  margin-top: 40px;
+}
 .publications h3 {
-    font-size: 1.8em;
-    border-bottom: 2px solid #e67e22;
-    padding-bottom: 8px;
-    margin-bottom: 20px;
-    color: #ecf0f1;
-  }
-  
-  .pub-list {
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-  }
-  
-  .pub-item {
-    display: flex;
-    align-items: center;
-    background: rgba(52, 73, 94, 0.8);
-    border: 1px solid rgba(236, 240, 241, 0.2);
-    border-radius: 5px;
-    padding: 25px;
-    transition: transform 0.2s;
-  }
-  
-  .pub-item:hover {
-    transform: translateX(5px);
-  }
-  
-  .pub-thumb {
-    width: 250px;  /* Increased image size */
-    height: auto;
-    margin-right: 20px;
-    border-radius: 3px;
-  }
-  
-  .pub-content h4 {
-    margin: 0;
-    font-size: 1.6em;  /* Larger title text */
-    color: #ecf0f1;
-  }
-  
-  .pub-content h4 a {
-    text-decoration: none;
-    color: #e67e22;
-  }
-  
-  .pub-content h4 a:hover {
-    text-decoration: underline;
-  }
-  
-  .pub-content p {
-    margin-top: 10px;
-    font-size: 1.1em;
-    color: #bdc3c7;
-  }
-  
+  font-size: 1.8em;
+  margin-bottom: 20px;
+  color: #1a73e8;
+  border-bottom: 2px solid #1a73e8;
+  padding-bottom: 8px;
+}
+.pub-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+.pub-item {
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: box-shadow 0.3s;
+}
+.pub-item:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+.pub-thumb {
+  width: 100%;
+  display: block;
+}
+.pub-content {
+  padding: 15px;
+}
+.pub-content h4 {
+  font-size: 1.4em;
+  margin-bottom: 10px;
+  color: #1a73e8;
+}
+.pub-content h4 a {
+  text-decoration: none;
+  color: inherit;
+}
+.pub-content h4 a:hover {
+  text-decoration: underline;
+}
+.pub-content p {
+  color: #555555;
+  font-size: 0.95em;
+}
+
+/* Footer Styles */
+footer {
+  text-align: center;
+  padding: 20px;
+  color: #777777;
+  font-size: 0.9em;
+  border-top: 1px solid #e0e0e0;
+  margin-top: 40px;
+}

@@ -1,10 +1,12 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Jacob Fein-Ashley</title>
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- Google Fonts for modern typography -->
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <title>Jacob Fein-Ashley | Electrical Engineering</title>
+  <!-- Google Fonts: Montserrat -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <!-- Link to CSS -->
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -20,7 +22,7 @@
         </div>
       </div>
       <nav class="header-links">
-        <a href="./stuff/resume/Fein-Ashley_Jacob_Resume.pdf" target="_blank" class="resume-link">Resume</a>
+        <a href="./stuff/resume/Fein-Ashley_Jacob_Resume.pdf" target="_blank">Resume</a>
         <a href="https://scholar.google.com/citations?user=5mdZf_QAAAAJ&hl=en" target="_blank">Google Scholar</a>
         <a href="https://www.linkedin.com/in/jacobfeinashley/" target="_blank">LinkedIn</a>
       </nav>
@@ -37,18 +39,21 @@
     </section>
   </main>
 
-  <!-- JavaScript to fetch publications from a JSON file -->
+  <!-- Optional Footer -->
+  <footer>
+    <p>&copy; 2025 Jacob Fein-Ashley. All Rights Reserved.</p>
+  </footer>
+
+  <!-- JavaScript to load publications from JSON -->
   <script>
     fetch('publications.json')
       .then(response => {
-        console.log('Response status:', response.status);
         if (!response.ok) {
           throw new Error('Network response was not ok: ' + response.statusText);
         }
         return response.json();
       })
       .then(data => {
-        console.log('Publications data:', data);
         const pubList = document.querySelector('.pub-list');
         data.forEach(pub => {
           const pubItem = document.createElement('div');
@@ -68,7 +73,5 @@
         document.querySelector('.pub-list').innerHTML = '<p>Unable to load publications at this time.</p>';
       });
   </script>
-  
-  
 </body>
 </html>
