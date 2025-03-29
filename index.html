@@ -2,183 +2,61 @@
 <html>
 <head>
   <title>Jacob Fein-Ashley</title>
-  <link rel="stylesheet" href="https://latex.now.sh/style.css">
-  
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z75ZJCVRKK"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){ dataLayer.push(arguments); }
-    gtag('js', new Date());
-    gtag('config', 'G-Z75ZJCVRKK');
-  </script>
-  
-  <!-- Force Dark Mode on Page Load -->
-  <script>
-    window.addEventListener('DOMContentLoaded', function() {
-      // This class from latex.now.sh typically applies a dark theme
-      document.body.classList.add('latex-dark');
-    });
-  </script>
-  
-  <style>
-    /* Global reset */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    /* Dark theme for the body */
-    body {
-      background-color: #121212; 
-      color: #f0f0f0;
-      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-      line-height: 1.6;
-    }
-
-    /* Centering container */
-    .container {
-      max-width: 700px;
-      margin: 3rem auto;
-      text-align: center;
-      padding: 0 1rem;
-    }
-
-    /* Main headings */
-    h1 {
-      font-size: 2rem;
-      margin-bottom: 0.5rem;
-    }
-
-    h2 {
-      font-size: 1.2rem;
-      font-weight: normal;
-      margin-bottom: 1.5rem;
-      color: #ccc;
-      font-style: italic;
-    }
-
-    /* Profile image */
-    .profile-img {
-      width: 100%;
-      max-width: 400px;
-      display: block;
-      margin: 0 auto 1rem auto;
-    }
-
-    /* Links */
-    .links {
-      list-style: none;
-      margin-top: 1.5rem;
-    }
-
-    .links li {
-      display: inline-block;
-      margin: 0 1rem;
-    }
-
-    .links a {
-      color: #4dabf7;
-      text-decoration: none;
-      font-weight: 500;
-    }
-
-    .links a:hover {
-      text-decoration: underline;
-    }
-    
-    /* Publications section styling */
-    .publications {
-      margin-top: 2rem;
-      text-align: left;
-    }
-    
-    .publications h3 {
-      margin-bottom: 1rem;
-      font-size: 1.5rem;
-    }
-    
-    .publication-item {
-      margin-bottom: 1rem;
-      border-bottom: 1px solid #333;
-      padding-bottom: 1rem;
-    }
-    
-    .publication-title {
-      font-weight: bold;
-    }
-    
-    .publication-meta {
-      font-size: 0.9rem;
-      color: #aaa;
-    }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Google Fonts for modern typography -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-  <div class="container">
-    <img
-      src="stuff/jacobfa.PNG"
-      alt="Jacob Fein-Ashley"
-      class="profile-img"
-    />
-
-    <h1>Jacob Fein-Ashley</h1>
-    <h2>Ph.D. Electrical Engineering Student at the University of Southern California</h2>
-
-    <ul class="links">
-      <li><a href="https://scholar.google.com/citations?user=5mdZf_QAAAAJ&hl=en" target="_blank">Google Scholar</a></li>
-      <li><a href="https://www.linkedin.com/in/jacobfeinashley/" target="_blank">LinkedIn</a></li>
-      <li><a href="stuff/resume/index.html" target="_blank">Resume</a></li>
-    </ul>
-    
-    <!-- Publications Section -->
-    <div class="publications">
-      <h3>Selected Publications</h3>
-      <div id="pubList">
-        <!-- Publication items will be loaded here -->
+  <!-- Header with Profile & Navigation -->
+  <header>
+    <div class="header-container">
+      <div class="profile">
+        <img src="stuff/jacobfa.PNG" alt="Jacob Fein-Ashley" class="profile-img">
+        <div class="credentials">
+          <h1>Jacob Fein-Ashley</h1>
+          <h2>Ph.D. Electrical Engineering Student</h2>
+          <p>University of Southern California</p>
+        </div>
       </div>
+      <nav class="header-links">
+        <a href="./stuff/resume/Fein-Ashley_Jacob_Resume.pdf" target="_blank" class="resume-link">Resume</a>
+        <a href="https://scholar.google.com/citations?user=5mdZf_QAAAAJ&hl=en" target="_blank">Google Scholar</a>
+        <a href="https://www.linkedin.com/in/jacobfeinashley/" target="_blank">LinkedIn</a>
+      </nav>
     </div>
-  </div>
-  
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <section class="publications">
+      <h3>Publications</h3>
+      <div class="pub-list">
+        <!-- Publications will be loaded here from publications.json -->
+      </div>
+    </section>
+  </main>
+
+  <!-- JavaScript to fetch publications from a JSON file -->
   <script>
-    /* 
-      This script fetches publication data from a JSON file.
-      Since Google Scholar does not provide an API, you can update the JSON file manually
-      or build a server-side routine to periodically update it.
-    */
     fetch('publications.json')
       .then(response => response.json())
       .then(data => {
-         const pubListDiv = document.getElementById('pubList');
-         data.publications.forEach(pub => {
-             const pubDiv = document.createElement('div');
-             pubDiv.classList.add('publication-item');
-             
-             // Title with an optional link
-             const titleEl = document.createElement('div');
-             titleEl.classList.add('publication-title');
-             if (pub.link) {
-               titleEl.innerHTML = `<a href="${pub.link}" target="_blank">${pub.title}</a>`;
-             } else {
-               titleEl.textContent = pub.title;
-             }
-             
-             // Additional metadata (authors, journal, year, etc.)
-             const metaEl = document.createElement('div');
-             metaEl.classList.add('publication-meta');
-             metaEl.textContent = pub.meta;
-             
-             pubDiv.appendChild(titleEl);
-             pubDiv.appendChild(metaEl);
-             pubListDiv.appendChild(pubDiv);
-         });
+        const pubList = document.querySelector('.pub-list');
+        data.forEach(pub => {
+          const pubItem = document.createElement('div');
+          pubItem.className = 'pub-item';
+          pubItem.innerHTML = `
+            <img src="${pub.image}" alt="${pub.title} Thumbnail" class="pub-thumb">
+            <div class="pub-content">
+              <h4><a href="${pub.link}" target="_blank">${pub.title}</a></h4>
+              <p>${pub.publication}, ${pub.year}</p>
+            </div>
+          `;
+          pubList.appendChild(pubItem);
+        });
       })
-      .catch(err => {
-         console.error('Error loading publications:', err);
-         document.getElementById('pubList').textContent = 'Unable to load publications.';
-      });
+      .catch(error => console.error('Error fetching publications:', error));
   </script>
 </body>
 </html>

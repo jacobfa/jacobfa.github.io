@@ -1,30 +1,31 @@
-{
-    "publications": [
-      {
-        "title": "The FFT Strikes Back: An Efficient Alternative to Self-Attention",
-        "link": "https://arxiv.org/abs/2502.18394",
-        "meta": "Jacob Fein-Ashley. arXiv:2502.18394 [cs.LG], 2025"
-      },
-      {
-        "title": "Iterate to Accelerate: A Unified Framework for Iterative Reasoning and Feedback Convergence",
-        "link": "https://arxiv.org/abs/2502.03787",
-        "meta": "Jacob Fein-Ashley. arXiv:2502.03787 [cs.LG], 2025"
-      },
-      {
-        "title": "Linear Diffusion Networks: Harnessing Diffusion Processes for Global Interactions",
-        "link": "https://www.arxiv.org/abs/2502.12381",
-        "meta": "Jacob Fein-Ashley. arXiv:2502.12381 [cs.LG], 2025"
-      },
-      {
-        "title": "Contextual Feedback Loops: Amplifying Deep Reasoning with Iterative Top-Down Feedback",
-        "link": "https://arxiv.org/abs/2412.17737",
-        "meta": "Jacob Fein-Ashley, Rajgopal Kannan, Viktor Prasanna. arXiv:2412.17737 [cs.LG], 2025"
-      },
-      {
-        "title": "ClusterViG: Efficient Globally Aware Vision GNNs via Image Partitioning",
-        "link": "https://arxiv.org/abs/2501.10640",
-        "meta": "Dhruv Parikh, Jacob Fein-Ashley, Tian Ye, Rajgopal Kannan, Viktor Prasanna. arXiv:2501.10640 [cs.CV], 2025"
+[
+    {
+      "title": "The FFT Strikes Again: An Efficient Alternative to Self-Attention",
+      "link": "https://arxiv.org/abs/2502.18394",
+      "image": "imgs/fftmethod.png",
+      "publication": "arXiv",
+      "year": "2025"
+    },
+    {
+      "title": "Contextual Feedback Loops: Amplifying Deep Reasoning With Iterative Top-Down Feedback",
+      "link": "https://arxiv.org/abs/2412.17737",
+      "image": "imgs/cfl.png",
+      "publication": "arXiv",
+      "year": "2025"
+    },
+    {
+      "title": "Linear Diffusion Networks",
+      "link": "https://arxiv.org/pdf/2502.12381",
+      "image": "imgs/matrix.png",
+      "publication": "arXiv",
+      "year": "2025"
+    },
+    {
+        "title": "ClusterViG",
+        "link": "https://arxiv.org/pdf/2501.10640",
+        "image": "imgs/clustervig.png",
+        "publication": "arXiv",
+        "year": "2025"
       }
-    ]
-  }
+  ]
   

@@ -1,0 +1,124 @@
+/* Global Reset & Box Sizing */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Body: Modern dark gradient background with fresh typography */
+  body {
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(135deg, #2c3e50, #4ca1af);
+    color: #ecf0f1;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Header Styling */
+  header {
+    background: rgba(44, 62, 80, 0.85);
+    padding: 15px 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  }
+  .header-container {
+    max-width: 1000px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  /* Profile Section */
+  .profile {
+    display: flex;
+    align-items: center;
+  }
+  .profile-img {
+    width: 100px;
+    height: auto;
+    margin-right: 15px;
+  }
+  .credentials h1 {
+    font-size: 1.8em;
+    margin-bottom: 5px;
+    color: #ecf0f1;
+  }
+  .credentials h2 {
+    font-size: 1.1em;
+    margin-bottom: 2px;
+    font-weight: 400;
+    color: #bdc3c7;
+  }
+  .credentials p {
+    font-size: 0.95em;
+    color: #95a5a6;
+  }
+  
+  /* Header Navigation Links */
+  .header-links a {
+    text-decoration: none;
+    margin-left: 20px;
+    font-weight: 700;
+    color: #e67e22;
+    transition: color 0.3s;
+  }
+  .header-links a:hover {
+    color: #d35400;
+  }
+  
+  /* Main Content */
+  main {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 0 20px;
+  }
+  
+  /* Publications Section */
+  .publications h3 {
+    font-size: 1.8em;
+    border-bottom: 2px solid #e67e22;
+    padding-bottom: 8px;
+    margin-bottom: 20px;
+    color: #ecf0f1;
+  }
+  .pub-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .pub-item {
+    display: flex;
+    align-items: center;
+    background: rgba(52, 73, 94, 0.8);
+    border: 1px solid rgba(236, 240, 241, 0.2);
+    border-radius: 5px;
+    padding: 15px;
+    transition: transform 0.2s;
+  }
+  .pub-item:hover {
+    transform: translateX(5px);
+  }
+  .pub-thumb {
+    width: 80px;
+    height: auto;
+    margin-right: 15px;
+    border-radius: 3px;
+  }
+  .pub-content h4 {
+    margin: 0;
+    font-size: 1.2em;
+    color: #ecf0f1;
+  }
+  .pub-content h4 a {
+    text-decoration: none;
+    color: #e67e22;
+  }
+  .pub-content h4 a:hover {
+    text-decoration: underline;
+  }
+  .pub-content p {
+    margin-top: 5px;
+    font-size: 0.9em;
+    color: #bdc3c7;
+  }
+  
