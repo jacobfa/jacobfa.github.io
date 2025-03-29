@@ -2,28 +2,28 @@
     {
       "title": "The FFT Strikes Again: An Efficient Alternative to Self-Attention",
       "link": "https://arxiv.org/abs/2502.18394",
-      "image": "imgs/fftmethod.png",
+      "image": "./imgs/fftmethod.png",
       "publication": "arXiv",
       "year": "2025"
     },
     {
       "title": "Contextual Feedback Loops: Amplifying Deep Reasoning With Iterative Top-Down Feedback",
       "link": "https://arxiv.org/abs/2412.17737",
-      "image": "imgs/cfl.png",
+      "image": "./imgs/cfl.png",
       "publication": "arXiv",
       "year": "2025"
     },
     {
       "title": "Linear Diffusion Networks",
       "link": "https://arxiv.org/pdf/2502.12381",
-      "image": "imgs/matrix.png",
+      "image": "./imgs/matrix.png",
       "publication": "arXiv",
       "year": "2025"
     },
     {
         "title": "ClusterViG",
         "link": "https://arxiv.org/pdf/2501.10640",
-        "image": "imgs/clustervig.png",
+        "image": "./imgs/clustervig.png",
         "publication": "arXiv",
         "year": "2025"
       }
