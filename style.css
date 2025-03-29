@@ -29,15 +29,17 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
 }
 
 /* Profile Section */
 .profile {
   display: flex;
   align-items: center;
+  margin-bottom: 10px;
 }
 .profile-img {
-  width: 100px; /* Adjust the width as needed */
+  width: 100px; /* Scaled down full image */
   height: auto;
   margin-right: 15px;
 }
@@ -58,6 +60,11 @@ header {
 }
 
 /* Navigation Links */
+.header-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
 .header-links a {
   margin-left: 20px;
   text-decoration: none;
@@ -134,4 +141,29 @@ footer {
   font-size: 0.9em;
   border-top: 1px solid #e0e0e0;
   margin-top: 40px;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .header-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .header-links {
+    margin-top: 10px;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+  }
+  .header-links a {
+    margin: 5px 10px 5px 0;
+  }
+  .credentials h1 {
+    font-size: 1.5em;
+  }
+  .credentials h2 {
+    font-size: 1em;
+  }
+  .pub-list {
+    grid-template-columns: 1fr;
+  }
 }
