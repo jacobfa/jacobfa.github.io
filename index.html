@@ -40,8 +40,15 @@
   <!-- JavaScript to fetch publications from a JSON file -->
   <script>
     fetch('publications.json')
-      .then(response => response.json())
+      .then(response => {
+        console.log('Response status:', response.status);
+        if (!response.ok) {
+          throw new Error('Network response was not ok: ' + response.statusText);
+        }
+        return response.json();
+      })
       .then(data => {
+        console.log('Publications data:', data);
         const pubList = document.querySelector('.pub-list');
         data.forEach(pub => {
           const pubItem = document.createElement('div');
@@ -56,7 +63,12 @@
           pubList.appendChild(pubItem);
         });
       })
-      .catch(error => console.error('Error fetching publications:', error));
+      .catch(error => {
+        console.error('Error fetching publications:', error);
+        document.querySelector('.pub-list').innerHTML = '<p>Unable to load publications at this time.</p>';
+      });
   </script>
+  
+  
 </body>
 </html>
