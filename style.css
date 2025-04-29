@@ -12,14 +12,22 @@
 /* 2. Typography & palette  */
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap");
 
-:root {
-  /* colours taken from the screenshot (sampled with colour-picker) */
-  --ink-900: #002B44;   /* ultra-dark navy for text   */
-  --ink-600: #154A6A;   /* medium navy for links      */
-  --ink-400: #597387;   /* muted label text           */
-  --cloud-000: #E4EBF4; /* page background            */
-  --cloud-050: #F2F6FA; /* cards / subtle contrast    */
-  --action-500: #0066FF;/* bright IMC accent blue     */
+:root{
+  /* Primary working vars used throughout the sheet */
+  --imc-bg:#EBF3FF;          /* brighter cloud background           */
+  --imc-line:rgba(0,43,68,.04);/* faint grid lines                   */
+  --imc-primary:#003A80;     /* richer navy for headings & text     */
+  --imc-accent:#0084FF;      /* pop-pier accent blue                */
+  --imc-gray:#425D6F;        /* higher-contrast secondary text      */
+  --imc-white:#FFFFFF;
+
+  /* Semantic aliases (optional) for future tweaking */
+  --ink-900:#001F3F;
+  --ink-600:#005EA8;
+  --ink-400:#6E8299;
+  --cloud-000:#EBF3FF;
+  --cloud-050:#F7FAFF;
+  --action-500:#0084FF;
 }
 
 html {
@@ -231,14 +239,6 @@ footer {
 
 /* == Reset & root == */
 *{margin:0;padding:0;box-sizing:border-box}
-:root{
-  --imc-bg:#dfe6f3;
-  --imc-line:rgba(0,0,0,.05);
-  --imc-primary:#002c5e;
-  --imc-accent:#0066ff;
-  --imc-gray:#5f6f8f;
-  --imc-white:#ffffff;
-}
 html{scroll-behavior:smooth}
 body{
   font-family:'Montserrat',sans-serif;
