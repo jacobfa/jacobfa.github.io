@@ -9,6 +9,13 @@
     gtag('js', new Date());
     gtag('config', 'G-Z75ZJCVRKK');
   </script>  
+
+  <script>
+    window.addEventListener('scroll', () =>
+      document.querySelector('header')
+              .classList.toggle('shrink', window.scrollY > 80)
+    );
+  </script>
   
 <head>
   <meta charset="UTF-8">
