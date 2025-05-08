@@ -1,303 +1,110 @@
-/*  IMC-style refresh  */
-/* -------------------------------------------------- */
-/* 1. Base reset  */
-*,
-*::before,
-*::after {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+/* =========================================
+   Refreshed IMC‑style theme · v5.1 (May 2025)
+   — Same layout, brighter palette, livelier background
+   ========================================= */
 
-/* 2. Typography & palette  */
+/* == 1. Base reset == */
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap");
 
+/* == 2. Design tokens == */
 :root{
-  /* Primary working vars used throughout the sheet */
-  --imc-bg:#EBF3FF;          /* brighter cloud background           */
-  --imc-line:rgba(0,43,68,.04);/* faint grid lines                   */
-  --imc-primary:#003A80;     /* richer navy for headings & text     */
-  --imc-accent:#0084FF;      /* pop-pier accent blue                */
-  --imc-gray:#425D6F;        /* higher-contrast secondary text      */
-  --imc-white:#FFFFFF;
+  /* Core palette */
+  --bg-100:#EAF2FF;               /* brighter page background        */
+  --bg-card:#FFFFFF;              /* surfaces / cards                */
+  --ink-900:#002B5B;              /* primary heading + body text     */
+  --ink-600:#38607D;              /* secondary text                  */
+  --ink-400:#7894AB;              /* tertiary text                   */
+  --accent-500:#0B7CFF;           /* brand accent                    */
+  --accent-300:#3F99FF;           /* accent hover / light tint       */
 
-  /* Semantic aliases (optional) for future tweaking */
-  --ink-900:#001F3F;
-  --ink-600:#005EA8;
-  --ink-400:#6E8299;
-  --cloud-000:#EBF3FF;
-  --cloud-050:#F7FAFF;
-  --action-500:#0084FF;
+  /* Shadows & radii */
+  --radius-md:0.75rem;
+  --shadow-sm:0 2px 4px rgba(0,0,0,.06);
+  --shadow-md:0 8px 20px rgba(0,0,0,.08);
 }
 
-html {
-  font-family: "Montserrat", sans-serif;
-  font-size: 16px;
-  background:
-    /* subtle baseline grid (vertical) */
-    repeating-linear-gradient(
-      to right,
-      transparent 0,
-      transparent 79px,
-      rgba(0, 0, 0, 0.025) 79px,
-      rgba(0, 0, 0, 0.025) 80px
-    ),
-    /* page tint */
-    var(--cloud-000);
-  color: var(--ink-900);
-  line-height: 1.6;
+html{
+  font-family:"Montserrat",sans-serif;
+  font-size:16px;
+  /* subtle radial fade for more depth */
+  background:radial-gradient(ellipse at top left,rgba(11,124,255,.05),transparent 60%),var(--bg-100);
+  color:var(--ink-900);
+  line-height:1.6;
+  scroll-behavior:smooth;
 }
 
-/* 3. Header  */
-header {
-  background: transparent;
-  padding-block: 2rem;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-}
-
-.header-container {
-  max-width: 1100px;
-  margin-inline: auto;
-  padding-inline: 1.25rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  flex-wrap: wrap;
-}
-
-/* 3a. Profile  */
-.profile {
-  display: flex;
-  align-items: center;
-}
-
-.profile-img {
-  height: 72px;
-  width: 72px;
-  object-fit: cover;
-  border-radius: 50%;
-  margin-right: 1rem;
-  box-shadow: 0 2px 6px rgba(0,0,0,.08);
-}
-
-.credentials h1 {
-  font-size: clamp(1.5rem, 2vw + 1rem, 2rem);
-  font-weight: 800;
-  letter-spacing: -0.02em;
-  color: var(--ink-900);
-}
-
-.credentials h2 {
-  font-size: 1rem;
-  font-weight: 600;
-  color: var(--ink-400);
-}
-
-.credentials p {
-  font-size: 0.9rem;
-  color: var(--ink-600);
-}
-
-/* 3b. Nav links  */
-.header-links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1.25rem;
-}
-
-.header-links a {
-  position: relative;
-  font-weight: 600;
-  text-decoration: none;
-  color: var(--ink-600);
-  transition: color 0.25s;
-}
-
-.header-links a::after {
-  content: "";
-  position: absolute;
-  inset-inline: 0;
-  bottom: -4px;
-  height: 2px;
-  transform-origin: left;
-  transform: scaleX(0);
-  background: var(--action-500);
-  transition: transform 0.25s;
-}
-
-.header-links a:hover {
-  color: var(--ink-900);
-}
-
-.header-links a:hover::after {
-  transform: scaleX(1);
-}
-
-/* 4. Main area  */
-main {
-  max-width: 900px;
-  margin-inline: auto;
-  padding: 3rem 1.25rem 4rem;
-}
-
-/* 5. Publications block  */
-.publications {
-  margin-top: 2rem;
-}
-
-.publications h3 {
-  font-size: clamp(1.6rem, 1.5vw + 1rem, 1.9rem);
-  font-weight: 800;
-  color: var(--ink-900);
-  margin-bottom: 1.5rem;
-  position: relative;
-}
-
-.publications h3::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -6px;
-  width: 48px;
-  height: 4px;
-  background: var(--action-500);
-}
-
-/* card grid */
-.pub-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.75rem;
-}
-
-.pub-item {
-  background: var(--cloud-050);
-  border-radius: 0.75rem;
-  overflow: hidden;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
-  transition: transform 0.25s;
-}
-
-.pub-item:hover {
-  transform: translateY(-4px);
-}
-
-.pub-thumb {
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  object-fit: cover;
-}
-
-.pub-content {
-  padding: 1rem 1.25rem 1.5rem;
-}
-
-.pub-content h4 {
-  font-size: 1.1rem;
-  font-weight: 600;
-  margin-bottom: 0.5rem;
-  color: var(--ink-900);
-}
-
-.pub-content h4 a {
-  text-decoration: none;
-  color: inherit;
-}
-
-.pub-content h4 a:hover {
-  color: var(--action-500);
-}
-
-.pub-content p {
-  font-size: 0.9rem;
-  color: var(--ink-600);
-}
-
-/* 6. Footer  */
-footer {
-  text-align: center;
-  padding: 2.5rem 1rem;
-  font-size: 0.85rem;
-  color: var(--ink-400);
-}
-
-/* 7. Responsiveness  */
-@media (max-width: 640px) {
-  .header-container { flex-direction: column; align-items: flex-start; }
-  .header-links     { gap: 0.8rem; }
-  .pub-list         { grid-template-columns: 1fr; }
-}
-
-
-/* ===============================
-   IMC-INSPIRED GLOBAL STYLING — v4
-   Header fully hides on scroll & stays in central container
-   =============================== */
-
-/* == Reset & root == */
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{
-  font-family:'Montserrat',sans-serif;
-  background:var(--imc-bg);
-  background-image:repeating-linear-gradient(to right,var(--imc-line)0 1px,transparent 1px 240px);
-  color:var(--imc-gray);line-height:1.6;min-height:100vh;
-}
-
-/* == Layout helper == */
-.container{width:min(90%,1100px);margin-inline:auto}
-
-/* == Header == */
+/* == 3. Header == */
 header{
   position:sticky;top:0;z-index:1000;
-  background:transparent;
-  transition:transform .35s ease,background .3s,box-shadow .3s;
+  background:rgba(255,255,255,0.85);
+  backdrop-filter:saturate(180%) blur(10px);
+  transition:box-shadow .3s ease-in-out;
 }
-/* inner flex wrapper */
-.header-inner{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:32px 0;}
+.header-container{
+  max-width:1100px;
+  margin-inline:auto;
+  padding:1.75rem 1.25rem;
+  display:flex;align-items:center;justify-content:space-between;gap:1.5rem;flex-wrap:wrap;
+}
+header:hover,header:focus-within{box-shadow:var(--shadow-sm);}
 
-/* Hide ENTIRE header when scrolled */
-header.shrink{transform:translateY(-110%);background:var(--imc-white);box-shadow:0 2px 6px rgba(0,0,0,.06)}
-
-/* Profile */
+/* === Profile === */
 .profile{display:flex;align-items:center}
-.profile-img{width:112px;height:auto;margin-right:18px;border:none;border-radius:0;box-shadow:none}
-.credentials h1{font-size:2rem;font-weight:700;text-transform:uppercase;color:var(--imc-primary);letter-spacing:1px}
-.credentials h2{font-size:1.05rem;font-weight:400;color:var(--imc-gray)}
-.credentials p{font-size:.95rem;color:var(--imc-gray)}
+.profile-img{
+  width:72px;height:72px;object-fit:cover;border-radius:50%;margin-right:1rem;
+  box-shadow:var(--shadow-sm);
+}
+.credentials h1{font-size:clamp(1.5rem,2vw+1rem,2rem);font-weight:800;letter-spacing:-.02em;color:var(--ink-900)}
+.credentials h2{font-size:1rem;font-weight:600;color:var(--ink-400)}
+.credentials p{font-size:.9rem;color:var(--ink-600)}
 
-/* Nav */
-.header-links{display:flex;flex-wrap:wrap;gap:24px}
-.header-links a{font-weight:700;text-decoration:none;color:var(--imc-primary);position:relative;padding-right:20px;transition:color .25s}
-.header-links a::after{content:'→';position:absolute;right:0;top:0}
-.header-links a:hover{color:var(--imc-accent)}
+/* === Nav links === */
+.header-links{display:flex;flex-wrap:wrap;gap:1.25rem}
+.header-links a{
+  position:relative;font-weight:600;text-decoration:none;color:var(--ink-600);transition:color .25s;
+}
+.header-links a::after{
+  content:"";position:absolute;inset-inline:0;bottom:-4px;height:2px;background:var(--accent-500);
+  transform:scaleX(0);transform-origin:left;transition:transform .25s;
+}
+.header-links a:hover{color:var(--ink-900)}
+.header-links a:hover::after{transform:scaleX(1)}
 
-/* == Main == */
-main{padding:64px 0}
-.publications{width:min(90%,1100px);margin-inline:auto}
-.publications h3{font-size:3rem;font-weight:700;text-transform:uppercase;color:var(--imc-primary);margin-bottom:48px;position:relative}
-.publications h3::after{content:'';position:absolute;left:0;bottom:-12px;width:64px;height:4px;background:var(--imc-accent);border-radius:2px}
+/* == 4. Main == */
+main{max-width:900px;margin-inline:auto;padding:3rem 1.25rem 4rem}
 
-/* Pub grid */
-.pub-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:32px}
-.pub-item{background:var(--imc-white);border-radius:12px;overflow:hidden;display:flex;flex-direction:column;transition:transform .3s,box-shadow .3s}
-.pub-item:hover{transform:translateY(-4px);box-shadow:0 12px 24px rgba(0,0,0,.1)}
-.pub-thumb{width:100%;display:block}
-.pub-content{padding:24px;flex:1;display:flex;flex-direction:column;justify-content:space-between}
-.pub-content h4{font-size:1.5rem;font-weight:700;line-height:1.3;color:var(--imc-primary);margin-bottom:12px}
-.pub-content h4 a{color:inherit;text-decoration:none}
-.pub-content h4 a:hover{text-decoration:underline}
-.pub-content p{color:var(--imc-gray);font-size:.95rem}
+/* == 5. Publications block == */
+.publications{margin-top:2rem}
+.publications h3{
+  font-size:clamp(1.6rem,1.5vw+1rem,1.9rem);font-weight:800;color:var(--ink-900);margin-bottom:1.5rem;position:relative;
+}
+.publications h3::after{
+  content:"";position:absolute;left:0;bottom:-6px;width:48px;height:4px;background:var(--accent-500);border-radius:2px;
+}
 
-/* == Footer == */
-footer{text-align:center;padding:32px 0 48px;font-size:.9rem;color:var(--imc-gray)}
+/* === Card grid === */
+.pub-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.75rem}
+.pub-item{
+  background:var(--bg-card);border-radius:var(--radius-md);overflow:hidden;box-shadow:var(--shadow-sm);
+  display:flex;flex-direction:column;transition:transform .25s,box-shadow .25s;
+}
+.pub-item:hover{transform:translateY(-4px);box-shadow:var(--shadow-md);}
+.pub-thumb{width:100%;aspect-ratio:16/9;object-fit:cover}
+.pub-content{padding:1rem 1.25rem 1.5rem;display:flex;flex-direction:column;gap:.75rem;flex:1}
+.pub-content h4{font-size:1.15rem;font-weight:600;color:var(--ink-900)}
+.pub-content h4 a{text-decoration:none;color:inherit}
+.pub-content h4 a:hover{color:var(--accent-500)}
+.pub-content p{font-size:.9rem;color:var(--ink-600);flex-grow:1}
 
-/* == Responsive == */
-@media(max-width:768px){
-  .profile-img{width:80px}
-  .credentials h1{font-size:1.6rem}
-  .publications h3{font-size:2.2rem}
+/* == 6. Footer == */
+footer{text-align:center;padding:2.5rem 1rem;font-size:.85rem;color:var(--ink-400)}
+
+/* == 7. Responsiveness == */
+@media(max-width:640px){
+  .header-container{flex-direction:column;align-items:flex-start}
+  .profile-img{width:60px;height:60px}
+  .header-links{gap:1rem}
+  .pub-list{grid-template-columns:1fr}
 }
