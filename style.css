@@ -1,19 +1,19 @@
 /* =========================================================
-   Jacob Fein-Ashley · Signature Portfolio Theme (updated)
-   — sleek editorial grid, airy spacing, bold sans-serif
+   Jacob Fein-Ashley · Signature Portfolio Theme (refreshed)
+   — sleek editorial grid, airy spacing, bold sans-serif, indigo+coral palette
    ========================================================= */
 
 @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap");
 
 /* ---------- Core palette ---------- */
 :root {
-  --bg: #0e0e10;          /* deep charcoal canvas              */
-  --elevate: #18181b;     /* slightly lighter for cards/footer */
-  --text: #f5f5f7;        /* near-white foreground             */
-  --muted: #9e9ea7;       /* subtle secondary copy             */
-  --accent: #00e0ff;      /* neon-cyan highlight               */
-  --radius: 16px;         /* rounded corners                   */
-  --shadow: 0 12px 25px rgba(0,0,0,.55);
+  --bg: #1a1a2e;          /* deep indigo canvas              */
+  --elevate: #16213e;     /* slate overlay for cards/footer */
+  --text: #eaeaea;        /* soft near-white foreground     */
+  --muted: #8892b0;       /* cool gray‑blue secondary copy  */
+  --accent: #e94560;      /* vibrant coral highlight        */
+  --radius: 16px;         /* rounded corners                */
+  --shadow: 0 12px 25px rgba(0,0,0,.6);
 }
 
 /* ---------- Vanta canvas holder ---------- */
@@ -98,7 +98,7 @@ header {
 }
 
 header.shrink {
-  background: rgba(14,14,16,.9);
+  background: rgba(26,26,46,.9);
   backdrop-filter: blur(6px);
   box-shadow: 0 1px 6px rgba(0,0,0,.6);
 }
