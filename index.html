@@ -21,6 +21,20 @@
     <!-- Styles -->
     <link rel="stylesheet" href="style.css" />
 
+    <!--  Inline overrides so Vanta fills entire viewport  -->
+    <style>
+      /* Let the shader be visible everywhere */
+      body { background: transparent !important; }
+
+      /* Vanta canvas holder */
+      #vanta-bg {
+        position: fixed;
+        inset: 0;
+        z-index: -2;          /* behind every UI layer */
+        pointer-events: none; /* no accidental clicks */
+      }
+    </style>
+
     <!-- Google Tag (gtag.js)  -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z75ZJCVRKK"></script>
     <script>
@@ -34,6 +48,9 @@
   </head>
 
   <body>
+    <!-- ===== Vanta Background Canvas ===== -->
+    <div id="vanta-bg"></div>
+
     <!-- ===================== Header ===================== -->
     <header>
       <div class="header-container">
@@ -87,39 +104,14 @@
       <p>&copy; 2025 Jacob Fein-Ashley. All rights reserved.</p>
     </footer>
 
-    <!-- ===================== Scripts ===================== -->
-    <script>
-      /* Shrink header on scroll */
-      const header = document.querySelector("header");
-      window.addEventListener("scroll", () => {
-        header.classList.toggle("shrink", window.scrollY > 80);
-      });
+    <!-- Three.js (required by Vanta) -->
+    <script src="https://cdn.jsdelivr.net/npm/three@0.152.2/build/three.min.js"></script>
 
-      /* Fetch publications */
-      fetch("publications.json")
-        .then((res) => {
-          if (!res.ok) throw new Error(res.statusText);
-          return res.json();
-        })
-        .then((data) => {
-          const list = document.querySelector(".pub-list");
-          data.forEach((pub) => {
-            const item = document.createElement("div");
-            item.className = "pub-item";
-            item.innerHTML = `
-              <img src="${pub.image}" alt="${pub.title} thumbnail" class="pub-thumb" loading="lazy" />
-              <div class="pub-content">
-                <h4><a href="${pub.link}" target="_blank" rel="noopener noreferrer">${pub.title}</a></h4>
-                <p>${pub.publication}, ${pub.year}</p>
-              </div>`;
-            list.appendChild(item);
-          });
-        })
-        .catch((err) => {
-          console.error("Error fetching publications:", err);
-          document.querySelector(".pub-list").innerHTML =
-            "<p>Unable to load publications at this time.</p>";
-        });
-    </script>
+    <!-- Pick any effect ― here we use “NET” -->
+    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.fog.min.js"></script>
+
+    <!-- main.js -->
+    <script src="main.js"></script>
+
   </body>
 </html>

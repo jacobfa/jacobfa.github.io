@@ -1,5 +1,5 @@
 /* =========================================================
-   Jacob Fein-Ashley · Signature Portfolio Theme
+   Jacob Fein-Ashley · Signature Portfolio Theme (updated)
    — sleek editorial grid, airy spacing, bold sans-serif
    ========================================================= */
 
@@ -16,14 +16,25 @@
   --shadow: 0 12px 25px rgba(0,0,0,.55);
 }
 
+/* ---------- Vanta canvas holder ---------- */
+/* Put this *before* the reset so we can override generics later if needed */
+#vanta-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -1;           /* sit below every regular element */
+  pointer-events: none;
+  background: var(--bg); /* fallback if Vanta fails */
+}
+
 /* ---------- Reset & base ---------- */
 *, *::before, *::after { box-sizing: border-box; }
 
 html, body {
   margin: 0;
   padding: 0;
-  background: var(--bg);
+  background: transparent; /* let Vanta show through */
   color: var(--text);
+  min-height: 100%;        /* ensure body fills viewport */
   font-family: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI",
                Roboto, Helvetica, Arial, sans-serif;
   font-size: 18px;
@@ -64,7 +75,6 @@ a {
   transition: color .25s ease;
 }
 
-/* animated underline */
 a::after {
   content: "";
   position: absolute;
@@ -82,7 +92,7 @@ a:hover, a:focus-visible { color: var(--accent); }
 header {
   position: fixed;
   inset: 0 0 auto;
-  z-index: 1000;
+  z-index: 1000;          /* above Vanta canvas */
   background: transparent;
   transition: background .35s ease, box-shadow .35s ease;
 }
