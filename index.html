@@ -1,101 +1,125 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <!-- Meta -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Jacob Fein-Ashley</title>
 
- <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z75ZJCVRKK"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){ dataLayer.push(arguments); }
-    gtag('js', new Date());
-    gtag('config', 'G-Z75ZJCVRKK');
-  </script>  
+    <!-- Favicon -->
+    <link rel="icon" href="imgs/icons8-person-100.png" type="image/png" sizes="32x32" />
+    <link rel="shortcut icon" href="imgs/icons8-person-100.png" type="image/png" />
 
-  <script>
-    window.addEventListener('scroll', () =>
-      document.querySelector('header')
-              .classList.toggle('shrink', window.scrollY > 80)
-    );
-  </script>
-  
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Jacob Fein-Ashley</title>
-  <!-- Google Fonts: Montserrat -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-  <!-- Link to CSS -->
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <!-- Header with Profile & Navigation -->
-  <header>
-    <div class="header-container">
-      <div class="profile">
-        <img src="stuff/jacobfa.PNG" alt="Jacob Fein-Ashley" class="profile-img">
-        <div class="credentials">
-          <h1>Jacob Fein-Ashley</h1>
-          <h2>Ph.D. Electrical Engineering Student</h2>
-          <p>University of Southern California</p>
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- Google Tag (gtag.js)  -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z75ZJCVRKK"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-Z75ZJCVRKK");
+    </script>
+  </head>
+
+  <body>
+    <!-- ===================== Header ===================== -->
+    <header>
+      <div class="header-container">
+        <div class="profile">
+          <img
+            src="stuff/jacobfa.PNG"
+            alt="Jacob Fein-Ashley portrait"
+            class="profile-img"
+            loading="lazy"
+          />
+          <div class="credentials">
+            <h1>Jacob Fein-Ashley</h1>
+            <h2>Ph.D. Electrical Engineering Student</h2>
+            <p>University&nbsp;of&nbsp;Southern&nbsp;California</p>
+          </div>
         </div>
+
+        <nav class="header-links" aria-label="Primary navigation">
+          <a
+            href="./stuff/resume/Fein-Ashley_Jacob_Resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Résumé</a
+          >
+          <a
+            href="https://scholar.google.com/citations?user=5mdZf_QAAAAJ&hl=en"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Google Scholar</a
+          >
+          <a
+            href="https://www.linkedin.com/in/jacobfeinashley/"
+            target="_blank"
+            rel="noopener noreferrer"
+            >LinkedIn</a
+          >
+        </nav>
       </div>
-      <nav class="header-links">
-        <a href="./stuff/resume/Fein-Ashley_Jacob_Resume.pdf" target="_blank">Resume</a>
-        <a href="https://scholar.google.com/citations?user=5mdZf_QAAAAJ&hl=en" target="_blank">Google Scholar</a>
-        <a href="https://www.linkedin.com/in/jacobfeinashley/" target="_blank">LinkedIn</a>
-      </nav>
-    </div>
-  </header>
+    </header>
 
-  <!-- Main Content -->
-  <main>
-    <section class="publications">
-      <h3>Publications</h3>
-      <div class="pub-list">
-        <!-- Publications will be loaded here from publications.json -->
-      </div>
-    </section>
-  </main>
+    <!-- ===================== Main ===================== -->
+    <main>
+      <section class="publications" id="publications">
+        <h3>Publications</h3>
+        <div class="pub-list"><!-- loaded via JS --></div>
+      </section>
+    </main>
 
-  <!-- Optional Footer -->
-  <footer>
-    <p>&copy; 2025 Jacob Fein-Ashley. All Rights Reserved.</p>
-  </footer>
+    <!-- ===================== Footer ===================== -->
+    <footer>
+      <p>&copy; 2025 Jacob Fein-Ashley. All rights reserved.</p>
+    </footer>
 
-  <!-- JavaScript to load publications from JSON -->
-  <script>
-    fetch('publications.json')
-      .then(response => {
-        if (!response.ok) {
-          throw new Error('Network response was not ok: ' + response.statusText);
-        }
-        return response.json();
-      })
-      .then(data => {
-        const pubList = document.querySelector('.pub-list');
-        data.forEach(pub => {
-          const pubItem = document.createElement('div');
-          pubItem.className = 'pub-item';
-          pubItem.innerHTML = `
-            <img src="${pub.image}" alt="${pub.title} Thumbnail" class="pub-thumb">
-            <div class="pub-content">
-              <h4><a href="${pub.link}" target="_blank">${pub.title}</a></h4>
-              <p>${pub.publication}, ${pub.year}</p>
-            </div>
-          `;
-          pubList.appendChild(pubItem);
-        });
-      })
-      .catch(error => {
-        console.error('Error fetching publications:', error);
-        document.querySelector('.pub-list').innerHTML = '<p>Unable to load publications at this time.</p>';
+    <!-- ===================== Scripts ===================== -->
+    <script>
+      /* Shrink header on scroll */
+      const header = document.querySelector("header");
+      window.addEventListener("scroll", () => {
+        header.classList.toggle("shrink", window.scrollY > 80);
       });
-  </script>
-  <script>
-  const header = document.querySelector('header');
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 50) header.classList.add('shrink');
-    else header.classList.remove('shrink');
-  });
-</script>
-</body>
+
+      /* Fetch publications */
+      fetch("publications.json")
+        .then((res) => {
+          if (!res.ok) throw new Error(res.statusText);
+          return res.json();
+        })
+        .then((data) => {
+          const list = document.querySelector(".pub-list");
+          data.forEach((pub) => {
+            const item = document.createElement("div");
+            item.className = "pub-item";
+            item.innerHTML = `
+              <img src="${pub.image}" alt="${pub.title} thumbnail" class="pub-thumb" loading="lazy" />
+              <div class="pub-content">
+                <h4><a href="${pub.link}" target="_blank" rel="noopener noreferrer">${pub.title}</a></h4>
+                <p>${pub.publication}, ${pub.year}</p>
+              </div>`;
+            list.appendChild(item);
+          });
+        })
+        .catch((err) => {
+          console.error("Error fetching publications:", err);
+          document.querySelector(".pub-list").innerHTML =
+            "<p>Unable to load publications at this time.</p>";
+        });
+    </script>
+  </body>
 </html>
