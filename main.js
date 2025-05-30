@@ -36,11 +36,13 @@ async function loadPublications() {
       const item = document.createElement("div");
       item.className = "pub-item";
       item.innerHTML = `
-        <img src="${image}" alt="${title} thumbnail" class="pub-thumb" loading="lazy" />
-        <div class="pub-content">
-          <h4><a href="${link}" target="_blank" rel="noopener noreferrer">${title}</a></h4>
-          <p>${publication}, ${year}</p>
-        </div>`;
+        <a href="${link}" target="_blank" rel="noopener noreferrer">
+          <img src="${image}" alt="${title} thumbnail" class="pub-thumb" loading="lazy" />
+          <div class="pub-content">
+            <h4>${title}</h4>
+            <p><span>${publication}</span><span>${year}</span></p>
+          </div>
+        </a>`;
       frag.appendChild(item);
     });
     container.appendChild(frag);
@@ -50,95 +52,95 @@ async function loadPublications() {
   }
 }
 
-// //--------------------------------------------------------
-// // 3. Vanta – self‑loading minimal NET effect
-// //--------------------------------------------------------
-// let vantaEffect = null;
+//--------------------------------------------------------
+// 3. Vanta – self‑loading minimal NET effect
+//--------------------------------------------------------
+let vantaEffect = null;
 
-// const VANTA_SRC = {
-//   three: "https://cdn.jsdelivr.net/npm/three@0.152.2/build/three.min.js",
-//   net: "https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.net.min.js",
-// };
+const VANTA_SRC = {
+  three: "https://cdn.jsdelivr.net/npm/three@0.152.2/build/three.min.js",
+  net: "https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.net.min.js",
+};
 
-// function loadScript(src) {
-//   return new Promise((resolve, reject) => {
-//     if ([...document.scripts].some((s) => s.src === src)) {
-//       // Already present (or loading) – wait until it fires "load".
-//       const existing = [...document.scripts].find((s) => s.src === src);
-//       if (existing.dataset.ready) return resolve();
-//       existing.addEventListener("load", () => resolve());
-//       existing.addEventListener("error", reject);
-//       return;
-//     }
-//     const s = document.createElement("script");
-//     s.src = src;
-//     s.defer = true;
-//     s.addEventListener("load", () => {
-//       s.dataset.ready = "1";
-//       resolve();
-//     });
-//     s.addEventListener("error", reject);
-//     document.body.appendChild(s);
-//   });
-// }
+function loadScript(src) {
+  return new Promise((resolve, reject) => {
+    if ([...document.scripts].some((s) => s.src === src)) {
+      // Already present (or loading) – wait until it fires "load".
+      const existing = [...document.scripts].find((s) => s.src === src);
+      if (existing.dataset.ready) return resolve();
+      existing.addEventListener("load", () => resolve());
+      existing.addEventListener("error", reject);
+      return;
+    }
+    const s = document.createElement("script");
+    s.src = src;
+    s.defer = true;
+    s.addEventListener("load", () => {
+      s.dataset.ready = "1";
+      resolve();
+    });
+    s.addEventListener("error", reject);
+    document.body.appendChild(s);
+  });
+}
 
-// async function ensureVantaScripts() {
-//   if (window.VANTA && window.VANTA.NET) return;
-//   try {
-//     // Need Three.js first, then Vanta.NET
-//     await loadScript(VANTA_SRC.three);
-//     await loadScript(VANTA_SRC.net);
-//   } catch (err) {
-//     console.error("Failed to load Vanta libraries:", err);
-//   }
-// }
+async function ensureVantaScripts() {
+  if (window.VANTA && window.VANTA.NET) return;
+  try {
+    // Need Three.js first, then Vanta.NET
+    await loadScript(VANTA_SRC.three);
+    await loadScript(VANTA_SRC.net);
+  } catch (err) {
+    console.error("Failed to load Vanta libraries:", err);
+  }
+}
 
-// function startVanta() {
-//   if (!window.VANTA || !window.VANTA.NET) return;
+function startVanta() {
+  if (!window.VANTA || !window.VANTA.NET) return;
 
-//   if (vantaEffect) vantaEffect.destroy();
+  if (vantaEffect) vantaEffect.destroy();
 
-//   vantaEffect = window.VANTA.NET({
-//     el: "#vanta-bg",
+  vantaEffect = window.VANTA.NET({
+    el: "#vanta-bg",
 
-//     // Palette
-//     color: 0x00e0ff,
-//     backgroundColor: 0x0e0e10,
+    // Palette
+    color: 0x00e0ff,
+    backgroundColor: 0x0e0e10,
 
-//     // Geometry
-//     points: 8.0,
-//     maxDistance: 20.0,
-//     spacing: 18.0,
+    // Geometry
+    points: 8.0,
+    maxDistance: 20.0,
+    spacing: 18.0,
 
-//     // Motion
-//     speed: 0.25,
-//     chaos: 0.35,
+    // Motion
+    speed: 0.25,
+    chaos: 0.35,
 
-//     // Interaction
-//     mouseControls: true,
-//     touchControls: false,
-//     gyroControls: true,
-//   });
-// }
+    // Interaction
+    mouseControls: true,
+    touchControls: false,
+    gyroControls: true,
+  });
+}
 
-// async function initVanta() {
-//   // Auto‑create the holder DIV if author removed it
-//   if (!$("#vanta-bg")) {
-//     const bg = document.createElement("div");
-//     bg.id = "vanta-bg";
-//     document.body.prepend(bg);
-//   }
+async function initVanta() {
+  // Auto‑create the holder DIV if author removed it
+  if (!$("#vanta-bg")) {
+    const bg = document.createElement("div");
+    bg.id = "vanta-bg";
+    document.body.prepend(bg);
+  }
 
-//   await ensureVantaScripts();
-//   startVanta();
-// }
+  await ensureVantaScripts();
+  startVanta();
+}
 
-// function destroyVanta() {
-//   if (vantaEffect) {
-//     vantaEffect.destroy();
-//     vantaEffect = null;
-//   }
-// }
+function destroyVanta() {
+  if (vantaEffect) {
+    vantaEffect.destroy();
+    vantaEffect = null;
+  }
+}
 
 //--------------------------------------------------------
 // 4. Boot sequence
@@ -146,7 +148,7 @@ async function loadPublications() {
 function boot() {
   initHeaderShrink();
   loadPublications();
-  initVanta();
+  // initVanta(); // Vanta disabled
 }
 
 document.readyState === "loading"
@@ -154,4 +156,4 @@ document.readyState === "loading"
   : boot();
 
 // Clean‑up for SPA navigations / reloads
-window.addEventListener("beforeunload", destroyVanta);
+// window.addEventListener("beforeunload", destroyVanta); // Vanta disabled

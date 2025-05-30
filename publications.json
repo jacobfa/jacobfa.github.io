@@ -1,6 +1,6 @@
 [
     {
-      "title": "The FFT Strikes Again: An Efficient Alternative to Self-Attention",
+      "title": "SPECTRE: An FFT-Based Efficient Drop-In Replacement to Self-Attention for Long Contexts",
       "link": "https://arxiv.org/abs/2502.18394",
       "image": "./imgs/fftmethod.png",
       "publication": "arXiv",
@@ -24,7 +24,7 @@
         "title": "ClusterViG",
         "link": "https://arxiv.org/pdf/2501.10640",
         "image": "./imgs/clustervig.png",
-        "publication": "arXiv",
+        "publication": "IEEE MCNA 2025 Best Paper Award",
         "year": "2025"
       }
 ]

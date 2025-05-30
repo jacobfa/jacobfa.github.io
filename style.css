@@ -3,7 +3,7 @@
    — sleek editorial grid · airy spacing · Inter & Plus Jakarta
    ========================================================= */
 
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap");
 
 /* ---------- Core palette ---------- */
 :root {
@@ -14,10 +14,34 @@
   --accent:  #e94560;  /* vibrant coral highlight       */
   --radius:  16px;     /* rounded corners               */
   --shadow:  0 12px 25px rgba(0,0,0,.6);
+  
+  /* Typography scale - using modular scale (1.25) */
+  --text-xs:   0.8rem;    /* 14.4px */
+  --text-sm:   0.9rem;    /* 16.2px */
+  --text-base: 1rem;      /* 18px */
+  --text-md:   1.125rem;  /* 20.25px */
+  --text-lg:   1.25rem;   /* 22.5px */
+  --text-xl:   1.563rem;  /* 28px */
+  --text-2xl:  1.953rem;  /* 35px */
+  --text-3xl:  2.441rem;  /* 44px */
+  --text-4xl:  3.052rem;  /* 55px */
+  
+  /* Line heights */
+  --line-tight: 1.1;
+  --line-snug:  1.3;
+  --line-base:  1.6;
+  --line-relaxed: 1.75;
+  
+  /* Letter spacing */
+  --tracking-tight: -0.02em;
+  --tracking-normal: 0;
+  --tracking-wide: 0.025em;
+  --tracking-wider: 0.05em;
 }
 
 /* ---------- Vanta canvas holder ---------- */
 #vanta-bg{
+  display: none; /* Vanta disabled */
   position:fixed;
   inset:0;
   z-index:-1;
@@ -28,16 +52,22 @@
 /* ---------- Reset & base ---------- */
 *,*::before,*::after{box-sizing:border-box;}
 
+html{
+  font-size: 18px; /* Base font size */
+}
+
 html,body{
   margin:0;
   padding:0;
-  background:transparent;
+  background:var(--bg); /* Set background color directly */
   color:var(--text);
   min-height:100%;
-  font-family:"Inter","Plus Jakarta Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-  font-size:18px;
-  line-height:1.65;
+  font-family:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  font-weight: 400;
+  line-height: var(--line-relaxed);
   -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
   scroll-behavior:smooth;
 }
 
@@ -49,18 +79,60 @@ body{
 
 /* ---------- Typography ---------- */
 h1,h2,h3,h4,h5{
-  font-family:"Plus Jakarta Sans",sans-serif;
-  font-weight:700;
-  margin:0 0 1.3rem;
-  line-height:1.22;
+  font-family:"Crimson Pro", Georgia, serif;
+  font-weight:600;
+  margin:0 0 1.5rem;
+  line-height: var(--line-tight);
+  letter-spacing: var(--tracking-tight);
+  color: var(--text);
 }
-h1{font-size:clamp(2.5rem,6.5vw,3.5rem);letter-spacing:-.025em;}
-h2{font-size:clamp(1.75rem,5vw,2.15rem);}
-h3{font-size:clamp(1.35rem,4vw,1.65rem);}
 
-p{margin:0 0 2.25rem;}
+h1{
+  font-size: clamp(var(--text-3xl), 7vw, var(--text-4xl));
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
 
-::selection{background:var(--accent);color:#000;}
+h2{
+  font-size: clamp(var(--text-xl), 5vw, var(--text-2xl));
+  font-weight: 600;
+  line-height: var(--line-snug);
+}
+
+h3{
+  font-size: clamp(var(--text-lg), 4vw, var(--text-xl));
+  font-weight: 600;
+  letter-spacing: var(--tracking-normal);
+}
+
+h4{
+  font-size: var(--text-md);
+  font-weight: 600;
+  letter-spacing: var(--tracking-normal);
+}
+
+p{
+  margin:0 0 1.75rem;
+  font-size: var(--text-base);
+  line-height: var(--line-relaxed);
+  letter-spacing: var(--tracking-normal);
+}
+
+/* Improve text readability */
+p, li {
+  font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
+  hanging-punctuation: first last;
+}
+
+/* Better number rendering */
+.credentials p, .pub-content p {
+  font-variant-numeric: tabular-nums;
+}
+
+::selection{
+  background:var(--accent);
+  color:#fff;
+}
 
 /* ---------- Links ---------- */
 a{
@@ -69,6 +141,7 @@ a{
   position:relative;
   text-decoration:none;
   transition:color .25s ease;
+  letter-spacing: var(--tracking-normal);
 }
 a::after{
   content:"";
@@ -126,75 +199,168 @@ header.shrink .header-container{padding:.6rem 1.5rem;}
 }
 header.shrink .profile-img{width:64px;height:64px;}
 
-.credentials h1{margin:0;}
-.credentials h2{
-  font-size:1rem;
-  font-weight:500;
-  color:var(--muted);
-  margin-bottom:.25rem;
+.credentials h1{
+  margin:0;
+  font-size: clamp(var(--text-2xl), 6vw, var(--text-3xl));
+  line-height: 1;
 }
+
+.credentials h2{
+  font-family: "Inter", sans-serif;
+  font-size: var(--text-base);
+  font-weight: 500;
+  color:var(--muted);
+  margin-bottom:.5rem;
+  margin-top: 0.75rem;
+  letter-spacing: var(--tracking-normal);
+  line-height: var(--line-snug);
+}
+
 .credentials p{
   margin:0;
-  font-size:.85rem;
+  font-size: var(--text-sm);
   color:var(--muted);
+  font-weight: 400;
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
 }
 
 /* nav links */
 .header-links a{
-  margin-left:1.5rem;
-  font-size:.9rem;
+  margin-left:2rem;
+  font-size: var(--text-sm);
+  font-weight: 500;
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
 }
 
 /* ---------- Main ---------- */
 main{margin-top:220px;}
 
 /* ---------- Publications grid ---------- */
-section.publications h3{margin-bottom:3rem;}
+section.publications h3{
+  margin-bottom:3rem;
+  font-size: var(--text-2xl);
+  position: relative;
+  padding-bottom: 1rem;
+}
+
+section.publications h3::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 60px;
+  height: 3px;
+  background: var(--accent);
+}
 
 .pub-list{
-  display:grid;
-  gap:2.25rem;
-  grid-template-columns:repeat(auto-fill,minmax(320px,1fr));
+  display:flex;
+  flex-direction: column;
+  gap:2rem;
 }
 
 .pub-item{
   background:var(--elevate);
   border-radius:var(--radius);
-  padding:2rem;
-  display:flex;
-  align-items:center;
-  gap:1.5rem;              /* small extra gap for larger img */
-  transition:transform .35s ease,box-shadow .35s ease;
+  padding:2.5rem;
+  transition:all .35s ease;
+  border: 1px solid rgba(255,255,255,0.05);
 }
+
 .pub-item:hover{
-  transform:translateY(-8px);
+  transform:translateY(-4px);
   box-shadow:var(--shadow);
+  border-color: rgba(255,255,255,0.1);
+}
+
+/* Make the link fill the container and center its contents */
+.pub-item a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  text-decoration: none;
+  width: 100%;
+}
+
+.pub-item a::after {
+  display: none;
 }
 
 .pub-thumb{
-  width:160px;height:160px;   /* ↑ larger images */
+  width:200px;
+  height:200px;
   object-fit:cover;
   border-radius:12px;
   flex-shrink:0;
+  border: 1px solid rgba(255,255,255,0.1);
+  margin-bottom: 1.5rem;
+}
+
+.pub-content{
+  width: 100%;
+  max-width: 600px;
 }
 
 .pub-content h4{
-  font-size:1.1rem;
-  font-weight:600;
-  margin:0 0 .4rem;
+  font-family: "Crimson Pro", serif;
+  font-size: var(--text-xl);
+  font-weight: 600;
+  margin:0 0 .75rem;
+  line-height: var(--line-snug);
+  letter-spacing: var(--tracking-tight);
+  color: var(--text);
+  text-align: center;
 }
+
 .pub-content p{
   margin:0;
-  font-size:.85rem;
+  font-size: var(--text-base);
   color:var(--muted);
+  line-height: var(--line-base);
+  font-weight: 400;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  text-align: center;
+}
+
+.pub-content p span{
+  position: relative;
+}
+
+.pub-content p span:not(:last-child)::after{
+  content: "•";
+  position: absolute;
+  right: -0.5rem;
+  color: var(--muted);
+  opacity: 0.5;
+}
+
+.pub-content h4::after {
+  content: "→";
+  margin-left: 0.5rem;
+  opacity: 0;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  display: inline-block;
+}
+
+.pub-item:hover .pub-content h4::after {
+  opacity: 1;
+  transform: translateX(4px);
 }
 
 /* ---------- Footer ---------- */
 footer{
   margin-top:6rem;
   text-align:center;
-  font-size:.85rem;
+  font-size: var(--text-sm);
   color:var(--muted);
+  font-weight: 400;
+  letter-spacing: var(--tracking-wide);
 }
 
 /* ---------- Utilities ---------- */
@@ -202,15 +368,48 @@ footer{
 
 /* ---------- Responsive ---------- */
 @media(max-width:680px){
-  body{font-size:16px;}
+  html{font-size:16px;}
   main{margin-top:260px;}
+  
   .header-container{
     flex-direction:column;
     gap:.75rem;
     text-align:center;
   }
+  
+  .credentials h1{
+    font-size: var(--text-2xl);
+  }
+  
   .header-links{display:flex;flex-wrap:wrap;justify-content:center;}
-  .header-links a{margin:.55rem .8rem;}
+  .header-links a{
+    margin:.55rem .8rem;
+    font-size: var(--text-xs);
+  }
+  
   .profile-img{width:80px;height:80px;}
-  .pub-thumb{width:140px;height:140px;} /* slightly smaller on mobile */
+  
+  /* Publications mobile adjustments */
+  .pub-item {
+    padding: 1.5rem;
+  }
+  
+  .pub-thumb{
+    width:160px;
+    height:160px;
+  }
+  
+  .pub-content h4 {
+    font-size: var(--text-lg);
+  }
+  
+  .pub-content p {
+    font-size: var(--text-sm);
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  section.publications h3{
+    font-size: var(--text-xl);
+  }
 }
