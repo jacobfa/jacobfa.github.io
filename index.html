@@ -10,18 +10,94 @@
     <link rel="icon" href="imgs/icons8-person-100.png" type="image/png" sizes="32x32" />
     <link rel="shortcut icon" href="imgs/icons8-person-100.png" type="image/png" />
 
-    <!-- Google Fonts: Inter -->
+    <!-- Preconnect to external domains -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://cdn.tailwindcss.com" />
+    
+    <!-- Google Fonts: Inter - Only load needed weights -->
     <link
-      href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
 
-    <!-- Styles -->
-    <link rel="stylesheet" href="style.css" />
+    <!-- Tailwind CSS with JIT mode -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Custom Tailwind Config -->
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              'inter': ['Inter', 'sans-serif'],
+            }
+          }
+        }
+      }
+    </script>
 
-    <!-- Google Tag (gtag.js)  -->
+    <!-- Optimized Custom Styles -->
+    <style>
+      /* Performance optimizations */
+      * {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+      
+      /* Simplified gradient - no animation for better performance */
+      .gradient-bg {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        opacity: 0.05;
+      }
+      
+      /* Optimized glass morphism */
+      .glass-morphism {
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(4px);
+        -webkit-backdrop-filter: blur(4px);
+        border: 1px solid rgba(255, 255, 255, 0.18);
+      }
+      
+      /* GPU-accelerated text gradient */
+      .text-gradient {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        will-change: transform;
+      }
+      
+      /* Optimized hover effect using transform only */
+      .hover-lift {
+        transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
+        will-change: transform;
+      }
+      
+      .hover-lift:hover {
+        transform: translateY(-4px);
+      }
+      
+      /* Line clamp utility */
+      .line-clamp-2 {
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+      }
+      
+      /* Optimize image rendering */
+      img {
+        content-visibility: auto;
+      }
+      
+      /* Reduce reflows during animations */
+      .publication-card {
+        contain: layout style paint;
+      }
+    </style>
+
+    <!-- Google Tag (gtag.js) - Load async -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z75ZJCVRKK"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -33,65 +109,116 @@
     </script>
   </head>
 
-  <body>
-    <!-- ===== Vanta Background Canvas ===== -->
-    <div id="vanta-bg"></div>
+  <body class="min-h-screen font-inter bg-gray-50">
+    <!-- ===== Static Gradient Background ===== -->
+    <div class="fixed inset-0 gradient-bg -z-10"></div>
 
     <!-- ===================== Header ===================== -->
-    <header>
-      <div class="header-container">
-        <div class="profile">
-          <img
-            src="stuff/jacobfa.PNG"
-            alt="Jacob Fein-Ashley portrait"
-            class="profile-img"
-            loading="lazy"
-          />
-          <div class="credentials">
-            <h1>Jacob Fein-Ashley</h1>
-            <h2>Ph.D. Electrical Engineering Student</h2>
-            <p>University&nbsp;of&nbsp;Southern&nbsp;California</p>
+    <header class="relative">
+      <div class="container mx-auto px-6 py-12 md:py-20">
+        <div class="max-w-4xl mx-auto">
+          <!-- Profile Section -->
+          <div class="flex flex-col md:flex-row items-center md:items-start gap-8 mb-12">
+            <div class="relative">
+              <img
+                src="stuff/jacobfa.PNG"
+                alt="Jacob Fein-Ashley portrait"
+                class="w-32 h-32 md:w-40 md:h-40 rounded-full object-cover shadow-xl ring-4 ring-white/50"
+                loading="eager"
+                decoding="async"
+              />
+              <div class="absolute -bottom-2 -right-2 w-12 h-12 bg-green-400 rounded-full flex items-center justify-center shadow-lg">
+                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+              </div>
+            </div>
+            
+            <div class="text-center md:text-left">
+              <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-2">
+                Jacob <span class="text-gradient">Fein-Ashley</span>
+              </h1>
+              <h2 class="text-xl md:text-2xl font-semibold text-gray-700 mb-2">
+                Ph.D. Electrical Engineering Student
+              </h2>
+              <p class="text-lg text-gray-600 flex items-center justify-center md:justify-start gap-2">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+                </svg>
+                University of Southern California
+              </p>
+            </div>
           </div>
-        </div>
 
-        <nav class="header-links" aria-label="Primary navigation">
-          <a
-            href="./stuff/resume/Fein-Ashley_Jacob_Resume.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            >Résumé</a
-          >
-          <a
-            href="https://scholar.google.com/citations?user=5mdZf_QAAAAJ&hl=en"
-            target="_blank"
-            rel="noopener noreferrer"
-            >Google Scholar</a
-          >
-          <a
-            href="https://www.linkedin.com/in/jacobfeinashley/"
-            target="_blank"
-            rel="noopener noreferrer"
-            >LinkedIn</a
-          >
-        </nav>
+          <!-- Navigation Links -->
+          <nav class="flex flex-wrap justify-center md:justify-start gap-4" aria-label="Primary navigation">
+            <a
+              href="./stuff/resume/Fein-Ashley_Jacob_Resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="glass-morphism px-6 py-3 rounded-lg text-gray-700 font-medium hover:bg-white hover:shadow-md transition-all hover-lift flex items-center gap-2"
+            >
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+              </svg>
+              Résumé
+            </a>
+            <a
+              href="https://scholar.google.com/citations?user=5mdZf_QAAAAJ&hl=en"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="glass-morphism px-6 py-3 rounded-lg text-gray-700 font-medium hover:bg-white hover:shadow-md transition-all hover-lift flex items-center gap-2"
+            >
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+              </svg>
+              Google Scholar
+            </a>
+            <a
+              href="https://www.linkedin.com/in/jacobfeinashley/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="glass-morphism px-6 py-3 rounded-lg text-gray-700 font-medium hover:bg-white hover:shadow-md transition-all hover-lift flex items-center gap-2"
+            >
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+              </svg>
+              LinkedIn
+            </a>
+          </nav>
+        </div>
       </div>
     </header>
 
     <!-- ===================== Main ===================== -->
-    <main>
-      <section class="publications" id="publications">
-        <h3>Publications</h3>
-        <div class="pub-list"><!-- loaded via JS --></div>
+    <main class="container mx-auto px-6 pb-20">
+      <section class="max-w-6xl mx-auto">
+        <div class="mb-12 text-center">
+          <h3 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            Recent <span class="text-gradient">Publications</span>
+          </h3>
+          <p class="text-gray-600 max-w-2xl mx-auto">
+            Exploring cutting-edge research in AI, machine learning, and electrical engineering
+          </p>
+        </div>
+        
+        <div class="pub-list grid grid-cols-1 md:grid-cols-2 gap-6">
+          <!-- Publications will be loaded via JS -->
+        </div>
       </section>
     </main>
 
     <!-- ===================== Footer ===================== -->
-    <footer>
-      <p>&copy; 2025 Jacob Fein-Ashley. All rights reserved.</p>
+    <footer class="mt-20 border-t border-gray-200">
+      <div class="container mx-auto px-6 py-8">
+        <p class="text-center text-gray-500 text-sm">
+          &copy; 2025 Jacob Fein-Ashley. All rights reserved.
+        </p>
+      </div>
     </footer>
 
-    <!-- main.js -->
-    <script src="main.js"></script>
+    <!-- main.js - Load after DOM -->
+    <script src="main.js" defer></script>
 
   </body>
 </html>
