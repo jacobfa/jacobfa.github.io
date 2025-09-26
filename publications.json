@@ -1,5 +1,11 @@
 [
     {
+        "title": "Mixture of Thoughts: Learning to Aggregate What Experts Think, Not Just What They Say",
+        "link": "https://arxiv.org/abs/2509.21164",
+        "publication": "arXiv",
+        "year": "2025"
+    },
+    {
         "title": "SPECTRE: An FFT-Based Efficient Drop-In Replacement to Self-Attention for Long Contexts",
         "link": "https://arxiv.org/abs/2502.18394",
         "publication": "arXiv",
