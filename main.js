@@ -21,7 +21,7 @@ fetch('publications.json')
             
             // Check if it's an arXiv paper
             if (pub.publication === 'arXiv') {
-                venue.innerHTML = `<span class="in-submission">In Submission</span>, ${pub.year}`;
+                venue.innerHTML = `<span class="in-submission">Under Submission</span>, ${pub.year}`;
             } else if (pub.publication.includes('Best Paper')) {
                 venue.textContent = `${pub.publication}, ${pub.year}`;
             } else {
