@@ -19,13 +19,15 @@ fetch('publications.json')
             const venue = document.createElement('div');
             venue.className = 'publication-venue';
             
-            // Check if it's an arXiv paper
+            // Format venue text: "Conference, Year" or "Conference" depending on data
+            // We wrap the conference name in a specific span for styling
+            let venueText = pub.publication;
             if (pub.publication === 'arXiv') {
-                venue.innerHTML = `<span class="in-submission">Under Submission</span>, ${pub.year}`;
-            } else if (pub.publication.includes('Best Paper')) {
-                venue.textContent = `${pub.publication}, ${pub.year}`;
+                 venue.innerHTML = `<span class="venue-badge submission">Under Submission</span> <span class="venue-year">${pub.year}</span>`;
             } else {
-                venue.textContent = `${pub.publication}, ${pub.year}`;
+                 // Check for "Best Paper" or other special notes to style differently if needed
+                 // For now, assume format is just Venue Name
+                 venue.innerHTML = `<span class="venue-badge">${pub.publication}</span> <span class="venue-year">${pub.year}</span>`;
             }
             
             pubDiv.appendChild(title);
