@@ -1,21 +1,16 @@
-/* Modern Minimalist Academic Style */
-
 :root {
-    /* Refined Color Palette */
-    --primary-color: #1a202c;      /* Slightly softer black */
-    --accent-color: #4a5568;       /* Slate gray for subtitles */
-    --link-color: #3182ce;         /* Distinct, clear blue */
-    --link-hover: #2b6cb0;         /* Darker blue for hover */
-    --text-color: #2d3748;         /* Dark gray for readability */
-    --text-light: #718096;         /* Lighter gray for metadata */
-    --bg-color: #ffffff;           /* Clean white background */
-    --border-color: #e2e8f0;       /* Subtle border */
+    --primary-color: #1a202c;
+    --accent-color: #4a5568;
+    --link-color: #3182ce;
+    --link-hover: #2b6cb0;
+    --text-color: #2d3748;
+    --text-light: #718096;
+    --bg-color: #ffffff;
+    --border-color: #e2e8f0;
     
-    /* Typography */
     --font-main: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
     --font-mono: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, Liberation Mono, monospace;
     
-    /* Layout */
     --container-width: 720px;
     --radius-sm: 6px;
     --radius-md: 12px;
@@ -47,7 +42,6 @@ body {
     padding: 80px 24px 60px;
 }
 
-/* Header / Profile Section */
 header {
     margin-bottom: 64px;
     display: flex;
@@ -79,15 +73,15 @@ h1 {
 .subtitle {
     font-size: 1.125rem;
     color: var(--accent-color);
-    margin-bottom: 1rem; /* Slightly reduced as advisor info adds space */
+    margin-bottom: 1rem;
     line-height: 1.5;
     font-weight: 400;
 }
 
 .advisor-info {
-    font-size: 0.95rem; /* Smaller than subtitle */
-    color: var(--text-light); /* Lighter color */
-    margin-top: 1rem; /* More space above */
+    font-size: 0.95rem;
+    color: var(--text-light);
+    margin-top: 1rem;
     font-weight: 400;
 }
 
@@ -113,7 +107,6 @@ h1 {
     transform: scale(1.02);
 }
 
-/* Main Content Sections */
 section {
     margin-bottom: 56px;
 }
@@ -122,22 +115,19 @@ h2 {
     font-size: 1.25rem;
     font-weight: 600;
     color: var(--primary-color);
-    margin-bottom: 0.75rem;  /* Reduced gap under line */
+    margin-bottom: 0.75rem;
     letter-spacing: -0.01em;
     padding-bottom: 0.5rem;
-    border-bottom: 1px solid var(--border-color); /* Full width border */
+    border-bottom: 1px solid var(--border-color);
     width: 100%;
     position: relative;
 }
-
-/* Removed h2::after */
 
 p {
     margin-bottom: 1.25rem;
     color: var(--text-color);
 }
 
-/* Publications List */
 .publication {
     margin-bottom: 2rem;
 }
@@ -165,18 +155,17 @@ p {
 .publication-venue {
     font-size: 0.9rem;
     color: var(--text-light);
-    margin-top: 0.25rem; /* Reduced margin */
+    margin-top: 0.25rem;
     display: flex;
     align-items: baseline;
     gap: 8px;
     flex-wrap: wrap;
 }
 
-/* Removed box/badge styling, moved to clean typography */
 .venue-badge {
-    color: var(--primary-color); /* Darker/Black for conferences */
-    font-weight: 600;            /* Bold */
-    font-style: normal;          /* Not italic */
+    color: var(--primary-color);
+    font-weight: 600;
+    font-style: normal;
     display: inline;
     padding: 0;
     background: none;
@@ -185,9 +174,9 @@ p {
 }
 
 .venue-badge.submission {
-    color: var(--text-light);    /* Gray for submission */
-    font-style: italic;          /* Italic for submission */
-    font-weight: 400;            /* Normal weight */
+    color: var(--text-light);
+    font-style: italic;
+    font-weight: 400;
 }
 
 .venue-year {
@@ -195,7 +184,6 @@ p {
     color: var(--text-light);
 }
 
-/* Links */
 a {
     color: var(--link-color);
     text-decoration: none;
@@ -209,7 +197,6 @@ a:hover {
     text-underline-offset: 2px;
 }
 
-/* Footer */
 footer {
     margin-top: 80px;
     padding-top: 32px;
@@ -219,7 +206,6 @@ footer {
     text-align: left;
 }
 
-/* Responsive Tweaks */
 @media (max-width: 640px) {
     h1 {
         font-size: 2rem;
