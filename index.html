@@ -5,11 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jacob Fein-Ashley</title>
     
-    <!-- Google Fonts: Inter -->
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
     
+    <!-- CSS -->
     <link rel="stylesheet" href="style.css">
 
     <!-- Matomo -->
@@ -18,46 +19,40 @@
 </head>
 <body>
     <div class="container">
-        <header>
-            <div class="profile-text">
+        <header class="header">
+            <div class="header-content">
                 <h1>Jacob Fein-Ashley</h1>
-                <div class="subtitle">
-                    PhD Student, Electrical Engineering<br>
-                    University of Southern California
-                </div>
-                <div class="advisor-info">
-                    Advised by Professor Paria Rashidinejad
-                </div>
-                <div class="contact-info">
-                    <a href="mailto:feinashl@usc.edu">feinashl@usc.edu</a>
+                <p class="subtitle">PhD Student in Electrical Engineering</p>
+                
+                <div class="meta-info">
+                    <span>University of Southern California</span>
+                    <span>Advisor: Prof. Paria Rashidinejad</span>
+                    <a href="mailto:feinashl@usc.edu" style="align-self: flex-start; margin-top: 0.5rem; border-bottom: 1px solid #999;">feinashl@usc.edu</a>
                 </div>
             </div>
-            <div class="profile-image-container">
-                <img src="stuff/jacobfa.PNG" alt="Jacob Fein-Ashley" class="profile-image">
-            </div>
+            
+            <img src="stuff/jacobfa.PNG" alt="Jacob Fein-Ashley" class="profile-img">
         </header>
-        
+
         <main>
-            <section id="research">
-                <h2>Research</h2>
-                <p>My research broadly focuses on machine learning.</p>
+            <section id="about">
+                <h2>About</h2>
+                <p>
+                    I am a PhD student in Electrical Engineering at the University of Southern California. I am broadly interested in machine learning.
+                </p>
             </section>
             
             <section id="publications">
                 <h2>Publications</h2>
-                <div id="publications-list">
+                <div id="publications-list" class="pub-list">
+                    <!-- Loaded dynamically via main.js -->
                 </div>
-            </section>
-            
-            <section id="education">
-                <h2>Education</h2>
-                <p><strong>PhD in Electrical Engineering</strong> (In Progress)<br>
-                <span style="color: var(--text-light)">University of Southern California</span></p>
             </section>
         </main>
 
         <footer>
-            <p>&copy; <script>document.write(new Date().getFullYear())</script> Jacob Fein-Ashley</p>
+            <span>&copy; <script>document.write(new Date().getFullYear())</script> Jacob Fein-Ashley</span>
+            <span>Los Angeles, CA</span>
         </footer>
     </div>
     

@@ -1,41 +1,45 @@
-// Load publications from JSON
-fetch('publications.json')
-    .then(response => response.json())
-    .then(publications => {
-        const container = document.getElementById('publications-list');
-        
-        publications.forEach(pub => {
-            const pubDiv = document.createElement('div');
-            pubDiv.className = 'publication';
+document.addEventListener('DOMContentLoaded', () => {
+    const publicationsContainer = document.getElementById('publications-list');
+
+    fetch('publications.json')
+        .then(response => response.json())
+        .then(data => {
+            // Sort by year descending (assuming data might not be sorted)
+            // If year is just a string number, this works. 
+            // Ideally we'd have robust sorting, but this is simple.
             
-            const title = document.createElement('div');
-            title.className = 'publication-title';
-            if (pub.link) {
-                title.innerHTML = `<a href="${pub.link}" target="_blank">${pub.title}</a>`;
-            } else {
+            data.forEach(pub => {
+                const pubLink = document.createElement('a');
+                pubLink.href = pub.link;
+                pubLink.className = 'pub-item';
+                pubLink.target = "_blank";
+                pubLink.rel = "noopener noreferrer";
+
+                const title = document.createElement('span');
+                title.className = 'pub-title';
                 title.textContent = pub.title;
-            }
-            
-            const venue = document.createElement('div');
-            venue.className = 'publication-venue';
-            
-            // Format venue text: "Conference, Year" or "Conference" depending on data
-            // We wrap the conference name in a specific span for styling
-            let venueText = pub.publication;
-            if (pub.publication === 'arXiv') {
-                 venue.innerHTML = `<span class="venue-badge submission">Under Submission</span> <span class="venue-year">${pub.year}</span>`;
-            } else {
-                 // Check for "Best Paper" or other special notes to style differently if needed
-                 // For now, assume format is just Venue Name
-                 venue.innerHTML = `<span class="venue-badge">${pub.publication}</span> <span class="venue-year">${pub.year}</span>`;
-            }
-            
-            pubDiv.appendChild(title);
-            pubDiv.appendChild(venue);
-            container.appendChild(pubDiv);
+
+                const meta = document.createElement('div');
+                meta.className = 'pub-meta';
+
+                const venue = document.createElement('span');
+                venue.textContent = pub.publication;
+
+                const year = document.createElement('span');
+                year.className = 'pub-year';
+                year.textContent = pub.year;
+
+                meta.appendChild(year);
+                meta.appendChild(venue);
+
+                pubLink.appendChild(title);
+                pubLink.appendChild(meta);
+
+                publicationsContainer.appendChild(pubLink);
+            });
+        })
+        .catch(error => {
+            console.error('Error loading publications:', error);
+            publicationsContainer.innerHTML = '<p class="error">Unable to load publications.</p>';
         });
-    })
-    .catch(error => {
-        console.error('Error loading publications:', error);
-        document.getElementById('publications-list').innerHTML = '<p>Error loading publications.</p>';
-    });
+});
