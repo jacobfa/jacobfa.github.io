@@ -207,8 +207,8 @@ footer span::after {
     height: 1px;
     background: repeating-linear-gradient(
         to right,
-        rgba(0, 0, 0, 0.075) 0,
-        rgba(0, 0, 0, 0.075) 3px,
+        rgba(0, 0, 0, 0.074) 0,
+        rgba(0, 0, 0, 0.074) 3px,
         transparent 3px,
         transparent 7px
     );
