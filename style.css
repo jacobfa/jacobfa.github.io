@@ -142,8 +142,10 @@ a:hover {
 
 .pub-item:hover {
     background-color: var(--hover-bg);
-    border-color: var(--accent-light);
-    border-bottom: 1px solid var(--accent-color); /* Highlight active item */
+    border-color: transparent;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    border: 1px solid var(--border-color);
 }
 
 .pub-title {
