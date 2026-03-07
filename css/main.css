@@ -225,31 +225,31 @@ a:hover { color: #111; }
   letter-spacing: 0.03em;
 }
 
-/* Fishing strip */
-.fish-strip {
-  display: flex;
+/* Fishing grid */
+.fish-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
   gap: 12px;
   margin-top: 18px;
-  overflow-x: auto;
-  padding-bottom: 8px;
-  scrollbar-width: thin;
-  scrollbar-color: #ccc transparent;
 }
 
-.fish-strip img {
-  height: 240px;
-  width: auto;
-  flex-shrink: 0;
-  border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.18);
+.fish-grid img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
   object-fit: cover;
+  border-radius: 10px;
+  display: block;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.18);
   transition: transform 0.25s ease, box-shadow 0.25s ease;
-  cursor: pointer;
 }
 
-.fish-strip img:hover {
-  transform: scale(1.03);
+.fish-grid img:hover {
+  transform: scale(1.02);
   box-shadow: 0 8px 22px rgba(0,0,0,0.28);
+}
+
+@media screen and (max-width: 600px) {
+  .fish-grid { grid-template-columns: 1fr; }
 }
 
 /* Colors */
