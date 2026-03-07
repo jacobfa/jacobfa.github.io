@@ -233,17 +233,27 @@ a:hover { color: #111; }
   margin-top: 18px;
 }
 
-.fish-grid img {
+.fish-grid-item {
+  position: relative;
   width: 100%;
-  aspect-ratio: 4 / 3;
-  object-fit: cover;
+  padding-bottom: 75%; /* 4:3 ratio */
+  overflow: hidden;
   border-radius: 10px;
-  display: block;
   box-shadow: 0 4px 12px rgba(0,0,0,0.18);
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-.fish-grid img:hover {
+.fish-grid-item img {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 10px;
+}
+
+.fish-grid-item:hover {
   transform: scale(1.02);
   box-shadow: 0 8px 22px rgba(0,0,0,0.28);
 }
