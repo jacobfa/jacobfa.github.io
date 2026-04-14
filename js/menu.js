@@ -1,4 +1,4 @@
-var validPages = ["home", "publications", "personal"];
+var validPages = ["publications", "personal"];
 
 function myFunction() {
   var x = document.getElementById("myTopnav");
@@ -57,7 +57,7 @@ window.addEventListener("popstate", function(e) {
 // On initial page load, honour the hash or default to home
 window.addEventListener("DOMContentLoaded", function() {
   var hash = window.location.hash.replace("#", "");
-  var page = validPages.indexOf(hash) !== -1 ? hash : "home";
+  var page = validPages.indexOf(hash) !== -1 ? hash : "publications";
   history.replaceState({ page: page }, "", "#" + page);
   showPage(page);
 });
