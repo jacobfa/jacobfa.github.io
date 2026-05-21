@@ -1,75 +1,86 @@
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {
-	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-	color: #1a1a1a;
-	line-height: 1.6;
-	max-width: 640px;
+	font-family: "Libre Baskerville", Georgia, serif;
+	color: #222;
+	background-color: #fff;
+	line-height: 1.8;
+	max-width: 700px;
 	margin: 0 auto;
-	padding: 80px 24px;
+	padding: 72px 32px;
+	font-size: 15px;
 }
 
 header {
 	display: flex;
-	align-items: center;
-	gap: 24px;
+	align-items: flex-start;
+	gap: 28px;
+	margin-bottom: 48px;
 }
 
 .photo {
-	width: 160px;
-	border-radius: 8px;
+	width: 140px;
+	border-radius: 4px;
 	flex-shrink: 0;
 }
 
 h1 {
-	font-size: 1.4rem;
-	font-weight: 600;
-	margin-bottom: 4px;
+	font-size: 1.8rem;
+	font-weight: 700;
+	margin-bottom: 6px;
+	letter-spacing: -0.01em;
 }
 
 .subtitle {
-	color: #555;
-	margin-bottom: 2px;
+	color: #444;
+	margin-bottom: 4px;
 }
 
 .email a {
-	color: #555;
+	color: #222;
 	text-decoration: none;
-	border-bottom: 1px solid #ccc;
+	border-bottom: 1px solid #999;
 }
 
 .email a:hover {
-	color: #000;
-	border-bottom-color: #000;
+	border-bottom-color: #222;
 }
 
 h2 {
-	font-size: 1rem;
-	font-weight: 600;
-	text-transform: uppercase;
-	letter-spacing: 0.05em;
-	color: #888;
-	margin-top: 56px;
-	margin-bottom: 24px;
+	font-size: 1.2rem;
+	font-weight: 700;
+	margin-bottom: 20px;
+	padding-bottom: 6px;
+	border-bottom: 1px solid #222;
 }
 
 .pub {
-	margin-bottom: 24px;
+	margin-bottom: 20px;
+	padding-bottom: 20px;
+	border-bottom: 1px solid #e0e0e0;
+}
+
+.pub:last-child {
+	border-bottom: none;
+	padding-bottom: 0;
 }
 
 .pub-title {
-	font-weight: 500;
+	font-weight: 700;
+	font-size: 0.95rem;
 }
 
 .pub-authors {
-	color: #555;
+	color: #666;
 	font-size: 0.9rem;
+	margin-top: 2px;
 }
 
 .pub-venue {
 	font-size: 0.85rem;
-	color: #888;
-	margin-top: 2px;
+	font-style: italic;
+	color: #444;
+	margin-top: 3px;
 }
 
 .pub-link {
@@ -78,18 +89,19 @@ h2 {
 }
 
 .pub-link a {
-	color: #1a1a1a;
+	color: #222;
 	text-decoration: none;
-	border-bottom: 1px solid #ccc;
+	border-bottom: 1px solid #999;
 }
 
 .pub-link a:hover {
-	border-bottom-color: #000;
+	border-bottom-color: #222;
 }
 
 @media screen and (max-width: 480px) {
 	header {
 		flex-direction: column;
+		align-items: center;
 		text-align: center;
 	}
 }
