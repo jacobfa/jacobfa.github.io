@@ -1,21 +1,32 @@
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
+:root {
+	--ink: #1c1e21;
+	--ink-soft: #4a4d52;
+	--ink-mute: #7a7d83;
+	--bg: #f4f5f7;
+	--rule: #dcdee2;
+}
+
+html, body { background-color: var(--bg); }
+
 body {
-	font-family: "Libre Baskerville", Georgia, serif;
-	color: #222;
-	background-color: #fff;
-	line-height: 1.8;
-	max-width: 700px;
+	font-family: "Source Serif 4", "Source Serif Pro", Charter, "Iowan Old Style", Cambria, Georgia, serif;
+	color: var(--ink);
+	line-height: 1.7;
+	max-width: 720px;
 	margin: 0 auto;
-	padding: 72px 32px;
-	font-size: 15px;
+	padding: 80px 32px 96px;
+	font-size: 16px;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 }
 
 header {
 	display: flex;
 	align-items: flex-start;
 	gap: 28px;
-	margin-bottom: 48px;
+	margin-bottom: 56px;
 }
 
 .photo {
@@ -25,83 +36,111 @@ header {
 }
 
 h1 {
-	font-size: 1.8rem;
-	font-weight: 700;
-	margin-bottom: 6px;
-	letter-spacing: -0.01em;
+	font-size: 1.75rem;
+	font-weight: 600;
+	margin-bottom: 8px;
+	letter-spacing: -0.02em;
+	color: var(--ink);
 }
 
 .subtitle {
-	color: #444;
-	margin-bottom: 4px;
+	color: var(--ink-soft);
+	margin-bottom: 2px;
+	font-size: 0.95rem;
+}
+
+.email {
+	margin-top: 8px;
 }
 
 .email a {
-	color: #222;
+	color: var(--ink);
 	text-decoration: none;
-	border-bottom: 1px solid #999;
+	border-bottom: 1px solid #b8b8b8;
+	transition: border-color 0.2s ease;
 }
 
 .email a:hover {
-	border-bottom-color: #222;
+	border-bottom-color: var(--ink);
 }
 
 h2 {
-	font-size: 1.2rem;
-	font-weight: 700;
-	margin-bottom: 20px;
-	padding-bottom: 6px;
-	border-bottom: 1px solid #222;
+	font-size: 1.05rem;
+	font-weight: 600;
+	margin-bottom: 24px;
+	padding-bottom: 10px;
+	border-bottom: 1px solid var(--rule);
+	letter-spacing: -0.01em;
 }
 
 .pub {
-	margin-bottom: 20px;
-	padding-bottom: 20px;
-	border-bottom: 1px solid #e0e0e0;
+	margin-bottom: 22px;
+	padding-bottom: 22px;
+	border-bottom: 1px solid var(--rule);
 }
 
 .pub:last-child {
 	border-bottom: none;
 	padding-bottom: 0;
+	margin-bottom: 0;
 }
 
 .pub-title {
-	font-weight: 700;
-	font-size: 0.95rem;
+	font-weight: 600;
+	font-size: 0.97rem;
+	line-height: 1.45;
+	color: var(--ink);
+	letter-spacing: -0.005em;
 }
 
 .pub-authors {
-	color: #666;
+	color: var(--ink-mute);
 	font-size: 0.9rem;
-	margin-top: 2px;
+	margin-top: 4px;
+	line-height: 1.6;
+}
+
+.pub-authors strong {
+	color: var(--ink);
+	font-weight: 600;
 }
 
 .pub-venue {
 	font-size: 0.85rem;
 	font-style: italic;
-	color: #444;
-	margin-top: 3px;
+	color: var(--ink-soft);
+	margin-top: 4px;
 }
 
 .pub-link {
 	font-size: 0.85rem;
-	margin-top: 4px;
+	margin-top: 8px;
 }
 
 .pub-link a {
-	color: #222;
+	color: var(--ink-soft);
 	text-decoration: none;
-	border-bottom: 1px solid #999;
+	border-bottom: 1px solid var(--rule);
+	transition: color 0.2s ease, border-color 0.2s ease;
 }
 
 .pub-link a:hover {
-	border-bottom-color: #222;
+	color: var(--ink);
+	border-bottom-color: var(--ink);
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 600px) {
+	body {
+		padding: 48px 20px 64px;
+	}
 	header {
 		flex-direction: column;
 		align-items: center;
 		text-align: center;
+		gap: 20px;
+		margin-bottom: 40px;
+	}
+	.photo {
+		width: 120px;
 	}
 }
